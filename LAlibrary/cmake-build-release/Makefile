@@ -57,10 +57,10 @@ RM = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/vladprotsenko/Documents/ACS/project/LAlibrary
+CMAKE_SOURCE_DIR = /Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/vladprotsenko/Documents/ACS/project/LAlibrary/cmake-build-release
+CMAKE_BINARY_DIR = /Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/vladprotsenko/Documents/ACS/project/LAlibrary/cmake-build-release/CMakeFiles /Users/vladprotsenko/Documents/ACS/project/LAlibrary/cmake-build-release//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/CMakeFiles /Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/vladprotsenko/Documents/ACS/project/LAlibrary/cmake-build-release/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -129,29 +129,77 @@ la-library/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/la-library.dir/build.make CMakeFiles/la-library.dir/build
 .PHONY : la-library/fast
 
-library.o: library.cpp.o
-.PHONY : library.o
+main.o: main.cpp.o
+.PHONY : main.o
 
 # target to build an object file
-library.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/la-library.dir/build.make CMakeFiles/la-library.dir/library.cpp.o
-.PHONY : library.cpp.o
+main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/la-library.dir/build.make CMakeFiles/la-library.dir/main.cpp.o
+.PHONY : main.cpp.o
 
-library.i: library.cpp.i
-.PHONY : library.i
+main.i: main.cpp.i
+.PHONY : main.i
 
 # target to preprocess a source file
-library.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/la-library.dir/build.make CMakeFiles/la-library.dir/library.cpp.i
-.PHONY : library.cpp.i
+main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/la-library.dir/build.make CMakeFiles/la-library.dir/main.cpp.i
+.PHONY : main.cpp.i
 
-library.s: library.cpp.s
-.PHONY : library.s
+main.s: main.cpp.s
+.PHONY : main.s
 
 # target to generate assembly for a file
-library.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/la-library.dir/build.make CMakeFiles/la-library.dir/library.cpp.s
-.PHONY : library.cpp.s
+main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/la-library.dir/build.make CMakeFiles/la-library.dir/main.cpp.s
+.PHONY : main.cpp.s
+
+sources/matrix.o: sources/matrix.cpp.o
+.PHONY : sources/matrix.o
+
+# target to build an object file
+sources/matrix.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/la-library.dir/build.make CMakeFiles/la-library.dir/sources/matrix.cpp.o
+.PHONY : sources/matrix.cpp.o
+
+sources/matrix.i: sources/matrix.cpp.i
+.PHONY : sources/matrix.i
+
+# target to preprocess a source file
+sources/matrix.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/la-library.dir/build.make CMakeFiles/la-library.dir/sources/matrix.cpp.i
+.PHONY : sources/matrix.cpp.i
+
+sources/matrix.s: sources/matrix.cpp.s
+.PHONY : sources/matrix.s
+
+# target to generate assembly for a file
+sources/matrix.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/la-library.dir/build.make CMakeFiles/la-library.dir/sources/matrix.cpp.s
+.PHONY : sources/matrix.cpp.s
+
+sources/vector.o: sources/vector.cpp.o
+.PHONY : sources/vector.o
+
+# target to build an object file
+sources/vector.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/la-library.dir/build.make CMakeFiles/la-library.dir/sources/vector.cpp.o
+.PHONY : sources/vector.cpp.o
+
+sources/vector.i: sources/vector.cpp.i
+.PHONY : sources/vector.i
+
+# target to preprocess a source file
+sources/vector.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/la-library.dir/build.make CMakeFiles/la-library.dir/sources/vector.cpp.i
+.PHONY : sources/vector.cpp.i
+
+sources/vector.s: sources/vector.cpp.s
+.PHONY : sources/vector.s
+
+# target to generate assembly for a file
+sources/vector.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/la-library.dir/build.make CMakeFiles/la-library.dir/sources/vector.cpp.s
+.PHONY : sources/vector.cpp.s
 
 # Help Target
 help:
@@ -162,9 +210,15 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... la-library"
-	@echo "... library.o"
-	@echo "... library.i"
-	@echo "... library.s"
+	@echo "... main.o"
+	@echo "... main.i"
+	@echo "... main.s"
+	@echo "... sources/matrix.o"
+	@echo "... sources/matrix.i"
+	@echo "... sources/matrix.s"
+	@echo "... sources/vector.o"
+	@echo "... sources/vector.i"
+	@echo "... sources/vector.s"
 .PHONY : help
 
 

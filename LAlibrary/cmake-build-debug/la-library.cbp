@@ -8,38 +8,38 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/Users/vladprotsenko/Documents/ACS/project/LAlibrary/cmake-build-debug"/>
+				<Option working_dir="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LAlibrary/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LAlibrary/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LAlibrary/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LAlibrary/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/Users/vladprotsenko/Documents/ACS/project/LAlibrary/cmake-build-debug"/>
+				<Option working_dir="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LAlibrary/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LAlibrary/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LAlibrary/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LAlibrary/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/Users/vladprotsenko/Documents/ACS/project/LAlibrary/cmake-build-debug"/>
+				<Option working_dir="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LAlibrary/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LAlibrary/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LAlibrary/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LAlibrary/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="la-library">
-				<Option output="/Users/vladprotsenko/Documents/ACS/project/LAlibrary/cmake-build-debug/libla-library.dylib" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/Users/vladprotsenko/Documents/ACS/project/LAlibrary/cmake-build-debug"/>
+				<Option output="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-debug/libla-library.dylib" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="3"/>
 				<Option compiler="gcc"/>
@@ -52,15 +52,15 @@
 					<Add directory="/Library/Frameworks"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LAlibrary/cmake-build-debug/Makefile&quot;  VERBOSE=1 la-library"/>
-					<CompileFile command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LAlibrary/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LAlibrary/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LAlibrary/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-debug/Makefile&quot;  VERBOSE=1 la-library"/>
+					<CompileFile command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="la-library/fast">
-				<Option output="/Users/vladprotsenko/Documents/ACS/project/LAlibrary/cmake-build-debug/libla-library.dylib" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/Users/vladprotsenko/Documents/ACS/project/LAlibrary/cmake-build-debug"/>
+				<Option output="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-debug/libla-library.dylib" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="3"/>
 				<Option compiler="gcc"/>
@@ -73,20 +73,26 @@
 					<Add directory="/Library/Frameworks"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LAlibrary/cmake-build-debug/Makefile&quot;  VERBOSE=1 la-library/fast"/>
-					<CompileFile command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LAlibrary/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LAlibrary/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LAlibrary/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-debug/Makefile&quot;  VERBOSE=1 la-library/fast"/>
+					<CompileFile command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/Users/vladprotsenko/Documents/ACS/project/LAlibrary/library.cpp">
+		<Unit filename="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/includes/vector.h">
 			<Option target="la-library"/>
 		</Unit>
-		<Unit filename="/Users/vladprotsenko/Documents/ACS/project/LAlibrary/library.h">
+		<Unit filename="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/main.cpp">
 			<Option target="la-library"/>
 		</Unit>
-		<Unit filename="/Users/vladprotsenko/Documents/ACS/project/LAlibrary/CMakeLists.txt">
+		<Unit filename="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/sources/matrix.cpp">
+			<Option target="la-library"/>
+		</Unit>
+		<Unit filename="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/sources/vector.cpp">
+			<Option target="la-library"/>
+		</Unit>
+		<Unit filename="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

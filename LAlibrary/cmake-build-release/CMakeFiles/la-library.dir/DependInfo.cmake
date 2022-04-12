@@ -8,7 +8,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/vladprotsenko/Documents/ACS/project/LAlibrary/library.cpp" "/Users/vladprotsenko/Documents/ACS/project/LAlibrary/cmake-build-release/CMakeFiles/la-library.dir/library.cpp.o"
+  "/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/main.cpp" "/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/CMakeFiles/la-library.dir/main.cpp.o"
+  "/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/sources/matrix.cpp" "/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/CMakeFiles/la-library.dir/sources/matrix.cpp.o"
+  "/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/sources/vector.cpp" "/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/CMakeFiles/la-library.dir/sources/vector.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "AppleClang")
 

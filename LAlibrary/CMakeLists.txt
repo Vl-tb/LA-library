@@ -3,4 +3,4 @@ project(la-library)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_library(la-library SHARED library.cpp)
+add_library(la-library SHARED sources/matrix.cpp sources/vector.cpp includes/vector.h main.cpp)
