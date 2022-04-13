@@ -117,6 +117,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named test
+
+# Build rule for target.
+test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test
+.PHONY : test
+
+# fast build rule for target.
+test/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/build
+.PHONY : test/fast
+
+#=============================================================================
 # Target rules for targets named la-library
 
 # Build rule for target.
@@ -134,7 +147,7 @@ main.o: main.cpp.o
 
 # target to build an object file
 main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/la-library.dir/build.make CMakeFiles/la-library.dir/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/main.cpp.o
 .PHONY : main.cpp.o
 
 main.i: main.cpp.i
@@ -142,7 +155,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/la-library.dir/build.make CMakeFiles/la-library.dir/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -150,56 +163,8 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/la-library.dir/build.make CMakeFiles/la-library.dir/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/main.cpp.s
 .PHONY : main.cpp.s
-
-sources/matrix.o: sources/matrix.cpp.o
-.PHONY : sources/matrix.o
-
-# target to build an object file
-sources/matrix.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/la-library.dir/build.make CMakeFiles/la-library.dir/sources/matrix.cpp.o
-.PHONY : sources/matrix.cpp.o
-
-sources/matrix.i: sources/matrix.cpp.i
-.PHONY : sources/matrix.i
-
-# target to preprocess a source file
-sources/matrix.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/la-library.dir/build.make CMakeFiles/la-library.dir/sources/matrix.cpp.i
-.PHONY : sources/matrix.cpp.i
-
-sources/matrix.s: sources/matrix.cpp.s
-.PHONY : sources/matrix.s
-
-# target to generate assembly for a file
-sources/matrix.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/la-library.dir/build.make CMakeFiles/la-library.dir/sources/matrix.cpp.s
-.PHONY : sources/matrix.cpp.s
-
-sources/vector.o: sources/vector.cpp.o
-.PHONY : sources/vector.o
-
-# target to build an object file
-sources/vector.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/la-library.dir/build.make CMakeFiles/la-library.dir/sources/vector.cpp.o
-.PHONY : sources/vector.cpp.o
-
-sources/vector.i: sources/vector.cpp.i
-.PHONY : sources/vector.i
-
-# target to preprocess a source file
-sources/vector.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/la-library.dir/build.make CMakeFiles/la-library.dir/sources/vector.cpp.i
-.PHONY : sources/vector.cpp.i
-
-sources/vector.s: sources/vector.cpp.s
-.PHONY : sources/vector.s
-
-# target to generate assembly for a file
-sources/vector.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/la-library.dir/build.make CMakeFiles/la-library.dir/sources/vector.cpp.s
-.PHONY : sources/vector.cpp.s
 
 # Help Target
 help:
@@ -210,15 +175,10 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... la-library"
+	@echo "... test"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... sources/matrix.o"
-	@echo "... sources/matrix.i"
-	@echo "... sources/matrix.s"
-	@echo "... sources/vector.o"
-	@echo "... sources/vector.i"
-	@echo "... sources/vector.s"
 .PHONY : help
 
 

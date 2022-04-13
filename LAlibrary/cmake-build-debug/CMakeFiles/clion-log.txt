@@ -1,4 +1,6 @@
 /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_DEPENDS_USE_COMPILER=FALSE -G "CodeBlocks - Unix Makefiles" /Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary
 -- Configuring done
+CMake Error: Cannot determine link language for target "la-library".
+CMake Error: CMake can not determine linker language for target: la-library
 -- Generating done
--- Build files have been written to: /Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-debug
+CMake Generate step failed.  Build files cannot be regenerated correctly.

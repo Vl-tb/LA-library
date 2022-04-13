@@ -66,66 +66,6 @@ include CMakeFiles/la-library.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/la-library.dir/flags.make
 
-CMakeFiles/la-library.dir/sources/matrix.cpp.o: CMakeFiles/la-library.dir/flags.make
-CMakeFiles/la-library.dir/sources/matrix.cpp.o: ../sources/matrix.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/la-library.dir/sources/matrix.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/la-library.dir/sources/matrix.cpp.o -c /Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/sources/matrix.cpp
-
-CMakeFiles/la-library.dir/sources/matrix.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/la-library.dir/sources/matrix.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/sources/matrix.cpp > CMakeFiles/la-library.dir/sources/matrix.cpp.i
-
-CMakeFiles/la-library.dir/sources/matrix.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/la-library.dir/sources/matrix.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/sources/matrix.cpp -o CMakeFiles/la-library.dir/sources/matrix.cpp.s
-
-CMakeFiles/la-library.dir/sources/vector.cpp.o: CMakeFiles/la-library.dir/flags.make
-CMakeFiles/la-library.dir/sources/vector.cpp.o: ../sources/vector.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/la-library.dir/sources/vector.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/la-library.dir/sources/vector.cpp.o -c /Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/sources/vector.cpp
-
-CMakeFiles/la-library.dir/sources/vector.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/la-library.dir/sources/vector.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/sources/vector.cpp > CMakeFiles/la-library.dir/sources/vector.cpp.i
-
-CMakeFiles/la-library.dir/sources/vector.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/la-library.dir/sources/vector.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/sources/vector.cpp -o CMakeFiles/la-library.dir/sources/vector.cpp.s
-
-CMakeFiles/la-library.dir/main.cpp.o: CMakeFiles/la-library.dir/flags.make
-CMakeFiles/la-library.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/la-library.dir/main.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/la-library.dir/main.cpp.o -c /Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/main.cpp
-
-CMakeFiles/la-library.dir/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/la-library.dir/main.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/main.cpp > CMakeFiles/la-library.dir/main.cpp.i
-
-CMakeFiles/la-library.dir/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/la-library.dir/main.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/main.cpp -o CMakeFiles/la-library.dir/main.cpp.s
-
-# Object files for target la-library
-la__library_OBJECTS = \
-"CMakeFiles/la-library.dir/sources/matrix.cpp.o" \
-"CMakeFiles/la-library.dir/sources/vector.cpp.o" \
-"CMakeFiles/la-library.dir/main.cpp.o"
-
-# External object files for target la-library
-la__library_EXTERNAL_OBJECTS =
-
-libla-library.dylib: CMakeFiles/la-library.dir/sources/matrix.cpp.o
-libla-library.dylib: CMakeFiles/la-library.dir/sources/vector.cpp.o
-libla-library.dylib: CMakeFiles/la-library.dir/main.cpp.o
-libla-library.dylib: CMakeFiles/la-library.dir/build.make
-libla-library.dylib: CMakeFiles/la-library.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX shared library libla-library.dylib"
-	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/la-library.dir/link.txt --verbose=$(VERBOSE)
-
-# Rule to build all files generated by this target.
-CMakeFiles/la-library.dir/build: libla-library.dylib
-.PHONY : CMakeFiles/la-library.dir/build
-
 CMakeFiles/la-library.dir/clean:
 	$(CMAKE_COMMAND) -P CMakeFiles/la-library.dir/cmake_clean.cmake
 .PHONY : CMakeFiles/la-library.dir/clean

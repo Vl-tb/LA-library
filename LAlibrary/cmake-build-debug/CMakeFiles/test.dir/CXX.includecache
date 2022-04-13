@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/includes/matrix.h
+vector
+-
+vector.h
+/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/includes/vector.h
+
+/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/includes/vector.h
+vector
+-
+matrix.h
+/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/includes/matrix.h
+
+/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/main.cpp
+iostream
+-
+includes/matrix.h
+/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/includes/matrix.h
+includes/vector.h
+/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/includes/vector.h
+
