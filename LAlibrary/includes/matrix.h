@@ -20,22 +20,26 @@ public:
     ~Matrix() = default;
 
     std::vector<int> shape;
-    std::vector<std::vector<T>> matrix;
+    Vector<Vector<T>> matrix;
 
     Matrix &operator+(const Matrix &);
     Matrix &operator-(const Matrix &);
     Matrix &operator==(const Matrix &);
     Matrix &operator*(T koef);
     Matrix &operator/(T koef);
-    Matrix& mul(const Matrix &);
-    Matrix& mul(const Vector &);
-    Matrix& inverse();
-    Matrix& transpose();
-    Matrix& det();
+    Vector &operator[](int row);
+    ostream &operator<<(ostream& os, const Matrix& mx);
+    Matrix &mul(const Matrix &);
+    Matrix &mul(const Vector &);
+    Matrix &inverse();
+    Matrix &transpose();
+    Matrix &det();
     bool add_comp(const Matrix &);
     bool mul_comp(const Matrix &);
     bool isnull();
     bool isident();
+    T minor(int col, int row);
+    T cofactor(int col, int row);
 
 };
 

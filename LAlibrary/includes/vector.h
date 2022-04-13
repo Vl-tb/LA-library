@@ -25,6 +25,8 @@ public:
     Vector &operator==(const Vector &);
     Vector &operator*(T koef);
     Vector &operator/(T koef);
+    T &operator[](int row);
+    ostream &operator<<(ostream& os, const Vector& vc);
     Matrix& mul(const Matrix &);
     Matrix& transpose();
     bool add_comp(const Vector &);
