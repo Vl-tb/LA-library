@@ -6,6 +6,8 @@
 
 #IncludeRegexTransform: 
 
+/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/includes/errors.h
+
 /Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/includes/matrix.h
 vector
 -
@@ -17,6 +19,8 @@ vector
 -
 matrix.h
 /Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/includes/matrix.h
+errors.h
+/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/includes/errors.h
 
 /Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/main.cpp
 iostream

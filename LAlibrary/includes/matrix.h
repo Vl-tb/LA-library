@@ -11,19 +11,18 @@ template<typename T>
 class Matrix
 {
 public:
-    Matrix(int cols, int rows);
+    std::vector<int> shape;
+    Vector<Vector<T>> matrix;
+
+    Matrix(int rows, int cols);
     Matrix(int dim);
     Matrix(std::vector<std::vector<T>>);
-
 
     Matrix(const Matrix &) = default;
     Matrix &operator=(const Matrix &) = delete;
     Matrix(Matrix &&) = default;
     Matrix &operator=(Matrix &&) = delete;
     ~Matrix() = default;
-
-    std::vector<int> shape;
-    Vector<Vector<T>> matrix;
 
     Matrix<T> &operator+(const Matrix<T> &);
     Matrix<T> &operator-(const Matrix<T> &);

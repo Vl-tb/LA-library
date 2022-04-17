@@ -3,5 +3,5 @@ project(la-library)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_library(la-library SHARED includes/vector.h includes/matrix.h)
+add_library(la-library SHARED includes/vector.h includes/matrix.h includes/errors.h)
 add_executable(test main.cpp)

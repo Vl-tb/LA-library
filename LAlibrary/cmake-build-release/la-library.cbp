@@ -122,6 +122,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/includes/errors.h">
+			<Option target="la-library"/>
+		</Unit>
 		<Unit filename="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/includes/matrix.h">
 			<Option target="la-library"/>
 		</Unit>

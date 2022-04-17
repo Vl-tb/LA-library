@@ -3,6 +3,7 @@
 
 #include <vector>
 #include "matrix.h"
+#include "errors.h"
 
 template<typename T>
 class Matrix;
@@ -11,31 +12,32 @@ template<typename T>
 class Vector
 {
 public:
+    std::vector<int> shape;
+    std::vector<T> vector;
+
     Vector(int dim) {
         vector = std::vector<T> (dim);
-        shape = std::vector<T> {dim, 1};
+        shape = std::vector<int> {dim, 1};
     }
     Vector(const std::vector<T>& vc) {
         int dim = vc.size();
-        shape = std::vector<T> {dim, 1};
+        shape = std::vector<int> {dim, 1};
         vector = std::vector<T> (dim);
         for (int i=0; i<dim; ++i) {
             vector[i] = vc[i];
         }
     }
 
-    Vector(const Vector &) = default;
-    Vector &operator=(const Vector &) = delete;
-    Vector(Vector &&) = default;
-    Vector &operator=(Vector &&) = delete;
+//    Vector(const Vector &) = default;
+//    Vector &operator=(const Vector &) = delete;
+//    Vector(Vector &&) = default;
+//    Vector &operator=(Vector &&) = delete;
     ~Vector() = default;
 
-    std::vector<int> shape;
-    std::vector<int> vector;
-
-    Vector<T> operator+(Vector<T> &vc) {
-        if (shape[0] != vc.shape[0]) {
-            return -1; //TODO Error ne shapes
+    template<typename S> Vector<T> operator+(Vector<S> &vc) {
+        if (!add_comp(vc)) {
+            std::cerr << "Incorrect shapes of vectors!" << std::endl;
+            exit(SHAPES_ERROR); //TODO Error ne shapes
         }
         Vector<T> res(shape[0]);
         for (int i=0; i<shape[0]; ++i) {
@@ -44,9 +46,10 @@ public:
         return res;
     }
 
-    Vector<T> operator-(Vector<T> &vc) {
-        if (shape[0] != vc.shape[0]) {
-            return -1; //TODO Error ne shapes
+    template<typename S> Vector<T> operator-(Vector<S> &vc) {
+        if (!add_comp(vc)) {
+            std::cerr << "Incorrect shapes of vectors!" << std::endl;
+            exit(SHAPES_ERROR); //TODO Error ne shapes
         }
         Vector<T> res(shape[0]);
         for (int i=0; i<shape[0]; ++i) {
@@ -55,9 +58,9 @@ public:
         return res;
     }
 
-    bool operator==(Vector<T> &vc) {
+    template<typename S> bool operator==(Vector<S> &vc) {
         if (shape[0] != vc.shape[0]) {
-            return -1; //TODO Error ne shapes
+            return false;
         }
         for (int i=0; i<shape[0]; ++i) {
             if (vector[i] != vc[i]){
@@ -67,18 +70,86 @@ public:
         return true;
     }
 
-    Vector<T> &operator*(T koef);
-    Vector<T> &operator/(T koef);
+    template<typename S> Vector<T> operator*(S koef) {
+        Vector<T> res(shape[0]);
+        for (int i=0; i<shape[0]; ++i) {
+            res[i] = vector[i]*koef;
+        }
+        return res;
+    }
+
+    template<typename S> Vector<T> operator/(S koef) {
+        if (koef == 0) {
+            std::cerr << "Cannot divide by zero!" << std::endl;
+            exit(ZERO_DIVISION_ERROR);
+        }
+        Vector<T> res(shape[0]);
+        for (int i=0; i<shape[0]; ++i) {
+            res[i] = vector[i]/koef;
+        }
+        return res;
+    }
+
     T &operator[](int row) {
+        if (row >= shape[0]) {
+            std::cerr << "Incorrect index!" << std::endl;
+            exit(INDEX_ERROR);
+        }
         return vector[row];
     }
-    std::ostream& print(std::ostream& os);
-    Matrix<T> &mul(const Matrix<T> &);
-    Matrix<T> &transpose();
-    Vector<T> &fill(T num);
-    bool add_comp(const Vector<T> &);
-    bool mul_comp(const Matrix<T> &);
-    bool isnull();
+
+    template<typename S> Matrix<T> &mul(const Matrix<S> &mx) {
+        if (!this->mul_comp(mx)) {
+            std::cerr << "Incorrect shapes of vector and matrix!" << std::endl;
+            exit(SHAPES_ERROR);
+        }
+        Matrix<T> res(shape[0], mx.shape[1]);
+        for (int i=0; i<shape[0]; ++i) {
+            for (int j=0; j<mx.shape[1]; ++j) {
+                res[i][j] = vector[i]*mx.vector[0][j];
+            }
+        }
+        return res;
+    }
+
+    Matrix<T> &transpose() {
+        Matrix<T> res(1, shape[0]);
+        for (int i=0; i<shape[0]; ++i) {
+            res[0][i] = vector[i];
+        }
+        return res;
+    }
+
+    Vector<T> fill(T num) {
+        Vector<T> res(shape[0]);
+        for (int i=0; i<shape[0]; ++i) {
+            res[i] = num;
+        }
+        return res;
+    }
+
+    bool add_comp(const Vector<T> &vc) {
+        if (shape[0] == vc.shape[0]) {
+            return true;
+        }
+        return false;
+    }
+
+    bool mul_comp(const Matrix<T> &mx) {
+        if (shape[1] == mx.shape[0]) {
+            return true;
+        }
+        return false;
+    }
+
+    bool isnull() {
+        for (int i=0; i<shape[0]; ++i) {
+            if (vector[i] != 0) {
+                return false;
+            }
+        }
+        return true;
+    }
 };
 
 template<typename T> std::ostream &operator<<(std::ostream& os, const std::vector<T>& vc) {
