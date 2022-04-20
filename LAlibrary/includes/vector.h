@@ -4,6 +4,7 @@
 #include <vector>
 #include "matrix.h"
 #include "errors.h"
+#include <typeinfo>
 
 template<typename T>
 class Matrix;
@@ -14,25 +15,45 @@ class Vector
 public:
     std::vector<int> shape;
     std::vector<T> vector;
+    int size;
 
-    Vector(int dim) {
+    Vector &operator=(const Vector &) = default;
+    Vector(Vector&& ) = default;
+    Vector(const Vector&)= default;
+    Vector() = default;
+    ~Vector() = default;
+
+
+    explicit Vector(int dim) {
         vector = std::vector<T> (dim);
         shape = std::vector<int> {dim, 1};
+        size = dim;
     }
-    Vector(const std::vector<T>& vc) {
+
+    explicit Vector(const std::vector<T>& vc) {
         int dim = vc.size();
-        shape = std::vector<int> {dim, 1};
+        if (dim > 0) {
+            std::string type = typeid(vc[0]).name();
+            if (type.substr(1, 6)=="Vector") {
+                shape = std::vector<int> {dim, 0};
+            } else {
+                shape = std::vector<int> {dim, 1};
+            }
+        } else {
+            shape = std::vector<int> {dim, 1};
+        }
+
         vector = std::vector<T> (dim);
         for (int i=0; i<dim; ++i) {
             vector[i] = vc[i];
-        }
+            }
+        size = dim;
     }
 
-//    Vector(const Vector &) = default;
-//    Vector &operator=(const Vector &) = delete;
-//    Vector(Vector &&) = default;
-//    Vector &operator=(Vector &&) = delete;
-    ~Vector() = default;
+
+    int get_size(){
+        return shape[0];
+    }
 
     template<typename S> Vector<T> operator+(Vector<S> &vc) {
         if (!add_comp(vc)) {
@@ -162,7 +183,7 @@ template<typename T> std::ostream &operator<<(std::ostream& os, const std::vecto
 
 template<typename T> std::ostream &operator<<(std::ostream& os, const Vector<T>& vc) {
     os << "Vector " << std::endl;
-    for (int i=0; i<vc.shape[0]; ++i) {
+    for (int i = 0; i < vc.shape[0]; ++i) {
         os << vc.vector[i] << std::endl;
     }
     return os;
