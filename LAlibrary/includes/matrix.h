@@ -14,9 +14,36 @@ public:
     std::vector<int> shape;
     Vector<Vector<T>> matrix;
 
-    Matrix(int rows, int cols);
-    Matrix(int dim);
-    Matrix(std::vector<std::vector<T>>);
+    Matrix(int rows, int cols){
+        shape = std::vector<int> {rows, cols};
+        Vector<T> vc1(cols);
+        vc1.fill(0);
+        std::vector<Vector<T>> vec;
+        for (size_t i = 0; i < rows; ++i){
+            vec.push_back(vc1);
+        }
+        Vector mtrx(std::vector<Vector<T>>{vec});
+        shape = std::vector<int> {rows, cols};
+        matrix = mtrx;
+
+    }
+
+
+    Matrix(const std::vector<std::vector<T>> &mtrx){
+        int rows = mtrx.size();
+        int cols = mtrx[0].size();
+        shape = std::vector<int> {rows, cols};
+        Vector<T> vc1(cols);
+        vc1.fill(0);
+        std::vector<Vector<T>> vec;
+        for (size_t i = 0; i < rows; ++i){
+            vec.push_back(vc1);
+        }
+        Vector mtRx(std::vector<Vector<T>>{vec});
+        shape = std::vector<int> {rows, cols};
+        matrix = mtRx;
+        
+    }
 
     Matrix(const Matrix &) = default;
     Matrix &operator=(const Matrix &) = delete;
