@@ -27,5 +27,8 @@ int main(int argc, char* argv[]) {
 
 //    std::cout << (prikol / 0) << std::endl; ERRORS
 //    std::cout << prikol[3] << std::endl;
+    std::vector<std::vector<int>> a {{1}};
+    Matrix tm(std::vector<std::vector<int>>{a});
+    Matrix<int> vec(2,3);
 
 };
