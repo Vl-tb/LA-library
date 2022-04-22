@@ -61,10 +61,53 @@ public:
     Matrix (Matrix &&) = default;
     ~Matrix() = default;
 
-    Matrix<T> &operator+(const Matrix<T> &);
+    Matrix<T> operator+(Matrix<T> &mt){
+        if (shape[0]!=mt.rowNum() && shape[1]!=mt.colNum()){
+            std::cerr << "Incorrect shapes of one of matrices!" << std::endl;
+            exit(SHAPES_ERROR);
+        }
+        Matrix<T> res(shape[0], shape[1]);
 
-    Matrix<T> &operator-(const Matrix<T> &);
-    Matrix<T> &operator==(const Matrix<T> &);
+        size_t i, j;
+        for (i=0; i < shape[0]; ++i){
+            for (j=0; j< shape[1]; ++j){
+                res[i][j] = mt[i][j] + matrix[i][j];
+            }
+        }
+        return res;
+    }
+
+    Matrix<T> operator-(Matrix<T> &mt){
+        if (shape[0]!=mt.rowNum() && shape[1]!=mt.colNum()){
+            std::cerr << "Incorrect shapes of one of matrices!" << std::endl;
+            exit(SHAPES_ERROR);
+        }
+        Matrix<T> res(shape[0], shape[1]);
+
+        size_t i, j;
+        for (i=0; i < shape[0]; ++i){
+            for (j=0; j< shape[1]; ++j){
+                res[i][j] = mt[i][j] - matrix[i][j];
+            }
+        }
+        return res;
+    }
+
+    bool operator==(Matrix<T> &mt){
+        if (shape[0]!=mt.rowNum() && shape[1]!=mt.colNum()){
+            return false;
+        }
+        size_t i, j;
+        for (i=0; i < shape[0]; ++i){
+            for (j=0; j< shape[1]; ++j){
+                if (mt[i][j] != matrix[i][j]){
+                    return false;
+                }
+            }
+        }
+        return true;
+
+    }
 
     template<typename S>  Matrix<double> operator*(S koef){
         Matrix<double> tm(shape[0], shape[1]);
@@ -98,10 +141,78 @@ public:
         }
         return matrix[row];
     }
-//    std::ostream& print(std::ostream& os);
-    Matrix<T> &mul(const Matrix<T> &);
-    Matrix<T> &mul(const Vector<T> &);
-    Matrix<T> &inverse();
+    Matrix<T> mul(Matrix<T> &mt){
+        std::cout<<mt.rowNum()<<"\n";
+        if(shape[1] != mt.rowNum()) {
+            std::cerr << "Cannot multiply such matrices" << std::endl;
+            exit(SHAPES_ERROR);
+        }
+        Matrix<T> resMatr(shape[0], mt.colNum());
+
+        Matrix<T> trns = mt.transpose();
+
+        size_t i, j;
+        for (i=0; i< shape[0]; ++i) {
+            for (j=0; j<trns.rowNum(); ++j){
+                resMatr[i][j] = matrix[i].mult(trns[j]);
+            }
+        }
+
+        return resMatr;
+    }
+
+    Matrix<T> mul( Vector<T> &vc){
+        Matrix<T> mt = vc.transpose();
+        Matrix<T> orig_matr(shape[0], shape[1]);
+        std::cout<<mt<<"\n";
+
+        size_t i, j;
+        for (i=0; i < shape[0]; ++i){
+            for (j=0; j< shape[1]; ++j){
+                orig_matr[i][j]=matrix[i][j];
+            }
+        }
+        std::cout<<orig_matr<<"\n";
+        return orig_matr.mul(mt);
+    }
+
+    Matrix<double> inverse(){
+        Matrix<T> minors(shape[0], shape[1]);
+        Matrix<T> orig_matr(shape[0], shape[1]);
+        size_t i, j;
+        for (i=0; i < shape[0]; ++i){
+            for (j=0; j< shape[1]; ++j){
+                minors[i][j] = minor(j, i);
+                orig_matr[i][j]=matrix[i][j];
+            }
+        }
+        Matrix<T> cofactors(shape[0], shape[1]);
+        for (i=0; i < shape[0]; ++i){
+            for (j=0; j< shape[1]; ++j){
+                if (i%2==0) {
+                    if(j%2==1){
+                        cofactors[i][j] = -minors[i][j];
+                    } else{
+                        cofactors[i][j] = minors[i][j];
+                    }
+                } else {
+                    if(j%2==1){
+                        cofactors[i][j] = minors[i][j];
+                    } else{
+                        cofactors[i][j] = -minors[i][j];
+                    }
+                }
+            }
+        }
+        Matrix<T> adj = cofactors.transpose();
+        T deter_original = orig_matr.determinant(orig_matr);
+        double one_by_deter = 1.0 / static_cast<double>(deter_original);
+        std::cout <<adj<<"\n";
+
+        return adj * one_by_deter;
+    }
+
+
     Matrix<T> transpose() {
         Matrix<T> mt(shape[1], shape[0]);
         size_t i=0;
@@ -117,12 +228,17 @@ public:
         return mt;
 
     }
-//    Matrix<T> &det(){
-//        if(shape[0] == shape[1]){
-//
-//        }
-//    }
-    Matrix<T> &fill(T num);
+
+    Matrix<T> fill(T num){
+        size_t i, j;
+        Matrix<T> res(shape[0], shape[1]);
+        for (i=0; i< shape[0]; ++i){
+            for (j=0; j<shape[1]; ++j){
+                res[i][j] = num;
+            }
+        }
+        return res;
+    }
 
 
     bool add_comp(const Matrix<T> &mt){
@@ -190,9 +306,12 @@ public:
     }
 
 
-    int determinant(Matrix<T> &mt){
+    T determinant(Matrix<T> &mt){
 
         if (mt.colNum() == mt.rowNum()) {
+            if (mt.colNum()==1){
+                return mt[0][0];
+            }
             if (mt.colNum() == 2){
                 return mt.determinant2x2();
             } else {
