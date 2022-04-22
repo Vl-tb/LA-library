@@ -55,18 +55,42 @@ public:
 
     }
 
+    Matrix() = default;
     Matrix(const Matrix &) = default;
-    Matrix &operator=(const Matrix &) = delete;
-    Matrix(Matrix &&) = default;
-    Matrix &operator=(Matrix &&) = delete;
+    Matrix &operator=(const Matrix &) = default;
+    Matrix (Matrix &&) = default;
     ~Matrix() = default;
 
     Matrix<T> &operator+(const Matrix<T> &);
 
     Matrix<T> &operator-(const Matrix<T> &);
     Matrix<T> &operator==(const Matrix<T> &);
-    Matrix<T> &operator*(T koef);
-    Matrix<T> &operator/(T koef);
+
+    template<typename S>  Matrix<double> operator*(S koef){
+        Matrix<double> tm(shape[0], shape[1]);
+        for( size_t i = 0; i < shape[0]; ++i ) {
+            for ( size_t j = 0; j<shape[1]; ++j){
+                tm[i][j] = static_cast<double>(matrix[i][j])*static_cast<double>(koef);
+            }
+        }
+        return tm;
+    }
+
+    template<typename S>  Matrix<double> operator/(S koef){
+        if (koef == 0) {
+            std::cerr << "Cannot divide by zero!" << std::endl;
+            exit(ZERO_DIVISION_ERROR);
+        }
+
+        Matrix<double> tm(shape[0], shape[1]);
+        for( size_t i = 0; i < shape[0]; ++i ) {
+            for ( size_t j = 0; j<shape[1]; ++j){
+                tm[i][j] = static_cast<double>(matrix[i][j])/static_cast<double>(koef);
+            }
+        }
+        return tm;
+    }
+
     Vector<T> &operator[](int row){
         if (row >= shape[0]){
             std::cerr << "Incorrect index!" << std::endl;
@@ -78,7 +102,21 @@ public:
     Matrix<T> &mul(const Matrix<T> &);
     Matrix<T> &mul(const Vector<T> &);
     Matrix<T> &inverse();
-    Matrix<T> &transpose();
+    Matrix<T> transpose() {
+        Matrix<T> mt(shape[1], shape[0]);
+        size_t i=0;
+        size_t j=0;
+        while(j!=shape[0]){
+            for( i = 0; i < shape[1]; ++i){
+                mt[i][j] = matrix[j][i];
+            }
+
+            j = j+1;
+
+        }
+        return mt;
+
+    }
 //    Matrix<T> &det(){
 //        if(shape[0] == shape[1]){
 //
@@ -216,6 +254,7 @@ public:
     }
 
 };
+
 
 template<typename T> std::ostream &operator<<(std::ostream& os, const Matrix<T>& mx){
     os << mx.matrix << "\n";
