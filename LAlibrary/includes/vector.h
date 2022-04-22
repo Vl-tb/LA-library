@@ -133,15 +133,29 @@ public:
                 res[i][j] = vector[i]*mx.vector[0][j];
             }
         }
+        std::cout<<"A"<<"\n";
         return res;
     }
 
-    Matrix<T> &transpose() {
-        Matrix<T> res(1, shape[0]);
+    Matrix<T> transpose() {
+        Matrix<T> res(shape[0], 1);
         for (int i=0; i<shape[0]; ++i) {
-            res[0][i] = vector[i];
+            res[i][0] = vector[i];
         }
         return res;
+    }
+
+    T mult(Vector<T> &vc1){
+        if (shape[0] != vc1.get_size()){
+            std::cerr << "Incorrect shapes of vectors!" << std::endl;
+            exit(SHAPES_ERROR);
+        }
+        size_t i, j;
+        T result = 0;
+        for (i=0; i< shape[0]; ++i){
+            result += vector[i]*vc1[i];
+        }
+        return result;
     }
 
     Vector<T> fill(T num) {
