@@ -42,12 +42,15 @@ public:
         } else {
             shape = std::vector<int> {dim, 1};
         }
-
+//        if (shape[1]==1){
         vector = std::vector<T> (dim);
         for (int i=0; i<dim; ++i) {
             vector[i] = vc[i];
             }
         size = dim;
+//        } else {
+//            vector = std::vector<std::vector<T>> (dim);
+//        }
     }
 
 
@@ -91,22 +94,22 @@ public:
         return true;
     }
 
-    template<typename S> Vector<T> operator*(S koef) {
-        Vector<T> res(shape[0]);
+    template<typename S> Vector<double> operator*(S koef) {
+        Vector<double> res(shape[0]);
         for (int i=0; i<shape[0]; ++i) {
-            res[i] = vector[i]*koef;
+            res[i] = static_cast<double>(vector[i]) * static_cast<double>(koef);
         }
         return res;
     }
 
-    template<typename S> Vector<T> operator/(S koef) {
+    template<typename S> Vector<double> operator/(S koef) {
         if (koef == 0) {
             std::cerr << "Cannot divide by zero!" << std::endl;
             exit(ZERO_DIVISION_ERROR);
         }
-        Vector<T> res(shape[0]);
+        Vector<double> res(shape[0]);
         for (int i=0; i<shape[0]; ++i) {
-            res[i] = vector[i]/koef;
+            res[i] = static_cast<double>(vector[i])/static_cast<double>(koef);
         }
         return res;
     }
@@ -174,18 +177,29 @@ public:
 };
 
 template<typename T> std::ostream &operator<<(std::ostream& os, const std::vector<T>& vc) {
-    os << "Vector " << std::endl;
+    os << "[";
     for (int i=0; i<vc.size(); ++i) {
-        os << vc[i] << std::endl;
+        if (i != vc.size()-1) {
+            os << vc[i]<< ", ";
+        } else {
+            os << vc[i];
+        }
     }
+    os << "]";
     return os;
 }
 
 template<typename T> std::ostream &operator<<(std::ostream& os, const Vector<T>& vc) {
-    os << "Vector " << std::endl;
+    os << "[";
+
     for (int i = 0; i < vc.shape[0]; ++i) {
-        os << vc.vector[i] << std::endl;
+        if ( i!=vc.shape[0]-1){
+            os << vc.vector[i] << ", ";
+        } else {
+            os << vc.vector[i];
+        }
     }
+    os << "]";
     return os;
 }
 
