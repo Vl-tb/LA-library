@@ -13,6 +13,8 @@ vector
 -
 vector.h
 /Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/includes/vector.h
+errors.h
+/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/includes/errors.h
 
 /Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/includes/vector.h
 vector
@@ -21,6 +23,8 @@ matrix.h
 /Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/includes/matrix.h
 errors.h
 /Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/includes/errors.h
+typeinfo
+-
 
 /Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/main.cpp
 iostream

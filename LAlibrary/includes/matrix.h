@@ -3,6 +3,7 @@
 
 #include <vector>
 #include "vector.h"
+#include "errors.h"
 
 template<typename T>
 class Vector;
@@ -29,6 +30,16 @@ public:
 
     }
 
+//    Matrix(const Vector<Vector<T>> &vec):
+//            Matrix<T> m1(shape[0], shape[1]) {
+//        size_t i,j;
+//        for (i = 0; i<shape[0]; ++i){
+//            for (j=0; j<shape[1]; ++j){
+//                m1[i][j] = matrix[i][j];
+//            }
+//        }
+//    }
+
 
     Matrix(const std::vector<std::vector<T>> &mtrx){
         int rows = mtrx.size();
@@ -52,7 +63,25 @@ public:
         Vector mtRx(std::vector<Vector<T>>{vec});
         shape = std::vector<int> {rows, cols};
         matrix = mtRx;
+    }
 
+    Matrix(int dim):
+        Matrix(dim, dim){}
+
+    Matrix<T> fromVec(Vector<Vector<T>> &vc){
+        std::vector<std::vector<T>> aa;
+        size_t i, j;
+        for (i=0; i < vc.get_size(); ++i){
+            std::vector<T> a;
+            for (j=0; j< vc[0].get_size(); ++j){
+                a.push_back(vc[i][j]);
+            }
+            aa.push_back(a);
+            a.clear();
+
+        }
+        Matrix<T> tm(std::vector<std::vector<T>>{aa});
+        return tm;
     }
 
     Matrix() = default;
@@ -87,14 +116,14 @@ public:
         size_t i, j;
         for (i=0; i < shape[0]; ++i){
             for (j=0; j< shape[1]; ++j){
-                res[i][j] = mt[i][j] - matrix[i][j];
+                res[i][j] = matrix[i][j] - mt[i][j];
             }
         }
         return res;
     }
 
     bool operator==(Matrix<T> &mt){
-        if (shape[0]!=mt.rowNum() && shape[1]!=mt.colNum()){
+        if (shape[0]!=mt.rowNum() || shape[1]!=mt.colNum()){
             return false;
         }
         size_t i, j;
@@ -124,7 +153,6 @@ public:
             std::cerr << "Cannot divide by zero!" << std::endl;
             exit(ZERO_DIVISION_ERROR);
         }
-
         Matrix<double> tm(shape[0], shape[1]);
         for( size_t i = 0; i < shape[0]; ++i ) {
             for ( size_t j = 0; j<shape[1]; ++j){
@@ -141,30 +169,26 @@ public:
         }
         return matrix[row];
     }
+
     Matrix<T> mul(Matrix<T> &mt){
-        std::cout<<mt.rowNum()<<"\n";
         if(shape[1] != mt.rowNum()) {
             std::cerr << "Cannot multiply such matrices" << std::endl;
             exit(SHAPES_ERROR);
         }
         Matrix<T> resMatr(shape[0], mt.colNum());
-
         Matrix<T> trns = mt.transpose();
-
         size_t i, j;
         for (i=0; i< shape[0]; ++i) {
             for (j=0; j<trns.rowNum(); ++j){
                 resMatr[i][j] = matrix[i].mult(trns[j]);
             }
         }
-
         return resMatr;
     }
 
-    Matrix<T> mul( Vector<T> &vc){
+    Matrix<T> mul(Vector<T> &vc){
         Matrix<T> mt = vc.transpose();
         Matrix<T> orig_matr(shape[0], shape[1]);
-        std::cout<<mt<<"\n";
 
         size_t i, j;
         for (i=0; i < shape[0]; ++i){
@@ -172,11 +196,14 @@ public:
                 orig_matr[i][j]=matrix[i][j];
             }
         }
-        std::cout<<orig_matr<<"\n";
         return orig_matr.mul(mt);
     }
 
     Matrix<double> inverse(){
+//        if (перевірка на 0 дет) {
+//            std::cerr << "Cannot inverse singular matrix!";
+//            exit(DETERMINANT_ERROR);
+//        }
         Matrix<T> minors(shape[0], shape[1]);
         Matrix<T> orig_matr(shape[0], shape[1]);
         size_t i, j;
@@ -207,7 +234,6 @@ public:
         Matrix<T> adj = cofactors.transpose();
         T deter_original = orig_matr.determinant(orig_matr);
         double one_by_deter = 1.0 / static_cast<double>(deter_original);
-        std::cout <<adj<<"\n";
 
         return adj * one_by_deter;
     }
@@ -277,37 +303,21 @@ public:
         return true;
     }
 
-    Matrix<T> fromVec(Vector<Vector<T>> &vc){
-        std::vector<std::vector<T>> aa;
-        size_t i, j;
-        for (i=0; i < vc.get_size(); ++i){
-            std::vector<T> a;
-            for (j=0; j< vc[0].get_size(); ++j){
-                a.push_back(vc[i][j]);
-            }
-            aa.push_back(a);
-            a.clear();
-
-        }
-        Matrix<T> tm(std::vector<std::vector<T>>{aa});
-        return tm;
-
-    }
     int rowNum(){
         return shape[0];
     }
+
     int colNum(){
         return shape[1];
     }
+
     T minor(int col, int row){
         Matrix<T> mt = fromVec(matrix);
         Matrix<T> ptrm = mt.curColRow(col, row, mt);
         return ptrm.determinant(ptrm);
     }
 
-
     T determinant(Matrix<T> &mt){
-
         if (mt.colNum() == mt.rowNum()) {
             if (mt.colNum()==1){
                 return mt[0][0];
@@ -327,9 +337,9 @@ public:
                 return determin;
             }
         } else {
-            std::cerr<<"Should a square matrix!"<<"\n";
+            std::cerr<<"Both matrices should be a square matrices!";
+            exit(SHAPES_ERROR);
         }
-
     }
 
     T determinant2x2(){
@@ -373,7 +383,6 @@ public:
     }
 
 };
-
 
 template<typename T> std::ostream &operator<<(std::ostream& os, const Matrix<T>& mx){
     os << mx.matrix << "\n";

@@ -32,25 +32,12 @@ public:
 
     explicit Vector(const std::vector<T>& vc) {
         int dim = vc.size();
-        if (dim > 0) {
-            std::string type = typeid(vc[0]).name();
-            if (type.substr(1, 6)=="Vector") {
-                shape = std::vector<int> {dim, 0};
-            } else {
-                shape = std::vector<int> {dim, 1};
-            }
-        } else {
-            shape = std::vector<int> {dim, 1};
-        }
-//        if (shape[1]==1){
+        shape = std::vector<int> {dim, 1};
         vector = std::vector<T> (dim);
         for (int i=0; i<dim; ++i) {
             vector[i] = vc[i];
             }
         size = dim;
-//        } else {
-//            vector = std::vector<std::vector<T>> (dim);
-//        }
     }
 
 
@@ -122,7 +109,7 @@ public:
         return vector[row];
     }
 
-    template<typename S> Matrix<T> &mul(const Matrix<S> &mx) {
+    template<typename S> Matrix<T> mul(Matrix<S> &mx) {
         if (!this->mul_comp(mx)) {
             std::cerr << "Incorrect shapes of vector and matrix!" << std::endl;
             exit(SHAPES_ERROR);
@@ -130,17 +117,16 @@ public:
         Matrix<T> res(shape[0], mx.shape[1]);
         for (int i=0; i<shape[0]; ++i) {
             for (int j=0; j<mx.shape[1]; ++j) {
-                res[i][j] = vector[i]*mx.vector[0][j];
+                res[i][j] = vector[i]*mx.matrix[0][j];
             }
         }
-        std::cout<<"A"<<"\n";
         return res;
     }
 
     Matrix<T> transpose() {
-        Matrix<T> res(shape[0], 1);
+        Matrix<T> res(1, shape[0]);
         for (int i=0; i<shape[0]; ++i) {
-            res[i][0] = vector[i];
+            res[0][i] = vector[i];
         }
         return res;
     }
@@ -205,11 +191,15 @@ template<typename T> std::ostream &operator<<(std::ostream& os, const std::vecto
 
 template<typename T> std::ostream &operator<<(std::ostream& os, const Vector<T>& vc) {
     os << "[";
-
+    std::string type = typeid(T).name();
     for (int i = 0; i < vc.shape[0]; ++i) {
-        if ( i!=vc.shape[0]-1){
+        if ( i!=vc.shape[0]-1 && (type.substr(1, 6) != "Vector")){
             os << vc.vector[i] << ", ";
-        } else {
+        }
+        else if (i!=vc.shape[0]-1) {
+            os << vc.vector[i] << '\n' << " ";
+        }
+        else {
             os << vc.vector[i];
         }
     }
