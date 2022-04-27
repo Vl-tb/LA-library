@@ -10,7 +10,7 @@ enum ERRORS {
     ZERO_DIVISION_ERROR = 2,
     INDEX_ERROR = 3,
     DETERMINANT_ERROR = 4,
-    TYPE_ERROR = 4,
+    TYPE_ERROR = 5
 };
 
 #endif //LA_LIBRARY_ERRORS_H
