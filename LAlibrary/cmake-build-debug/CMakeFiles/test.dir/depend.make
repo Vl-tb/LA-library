@@ -4,5 +4,6 @@
 CMakeFiles/test.dir/main.cpp.o: \
  ../includes/errors.h \
  ../includes/matrix.h \
+ ../includes/mt.h \
  ../includes/vector.h \
  ../main.cpp
