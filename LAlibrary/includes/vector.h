@@ -131,14 +131,16 @@ public:
         return res;
     }
 
-    T mult(Vector<T> &vc1){
+    template<typename S>  double mult(Vector<S> &vc1){
         if (shape[0] != vc1.get_size()){
             std::cerr << "Incorrect shapes of vectors!" << std::endl;
             exit(SHAPES_ERROR);
         }
+
         size_t i, j;
-        T result = 0;
+        double result = 0;
         for (i=0; i< shape[0]; ++i){
+
             result += vector[i]*vc1[i];
         }
         return result;
@@ -180,7 +182,7 @@ template<typename T> std::ostream &operator<<(std::ostream& os, const std::vecto
     os << "[";
     for (int i=0; i<vc.size(); ++i) {
         if (i != vc.size()-1) {
-            os << vc[i]<< ", ";
+            os << vc[i]<< "\n";
         } else {
             os << vc[i];
         }
