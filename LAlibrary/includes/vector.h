@@ -5,6 +5,10 @@
 #include "matrix.h"
 #include "errors.h"
 #include <typeinfo>
+#include <thread>
+#include <atomic>
+#include <math.h>
+#include "mt.h"
 
 template<typename T>
 class Matrix;
@@ -16,6 +20,8 @@ public:
     std::vector<int> shape;
     std::vector<T> vector;
     int size;
+    int cores = std::thread::hardware_concurrency();
+
 
     Vector &operator=(const Vector &) = default;
     Vector(Vector&& ) = default;
@@ -32,12 +38,23 @@ public:
 
     explicit Vector(const std::vector<T>& vc) {
         int dim = vc.size();
+        size = dim;
         shape = std::vector<int> {dim, 1};
         vector = std::vector<T> (dim);
-        for (int i=0; i<dim; ++i) {
-            vector[i] = vc[i];
+        if (cores == 0) {
+            for (int i=0; i<dim; ++i) {
+                vector[i] = vc[i];
             }
-        size = dim;
+        }
+        else {
+            std::vector<std::thread> threads;
+            for (int i=0; i<cores; ++i) {
+                threads.emplace_back(mt_assign<T>, i, cores, dim, std::ref(vc), std::ref(vector));
+            }
+            for (std::thread &th: threads) {
+                th.join();
+            }
+        }
     }
 
 
@@ -51,8 +68,20 @@ public:
             exit(SHAPES_ERROR); //TODO Error ne shapes
         }
         Vector<T> res(shape[0]);
-        for (int i=0; i<shape[0]; ++i) {
-            res[i] = vector[i] + vc[i];
+        if (get_cores() == 0) {
+            for (int i=0; i<shape[0]; ++i) {
+                res[i] = vector[i] + vc[i];
+            }
+        }
+        else {
+            std::vector<std::thread> threads;
+            for (int i=0; i<cores; ++i) {
+                threads.emplace_back(mt_add<T, S>, i, cores, shape[0], std::cref(vc.vector), std::cref(vector),
+                                     std::ref(res.vector));
+            }
+            for (std::thread &th: threads) {
+                th.join();
+            }
         }
         return res;
     }
@@ -63,8 +92,20 @@ public:
             exit(SHAPES_ERROR); //TODO Error ne shapes
         }
         Vector<T> res(shape[0]);
-        for (int i=0; i<shape[0]; ++i) {
-            res[i] = vector[i] - vc[i];
+        if (get_cores() == 0) {
+            for (int i=0; i<shape[0]; ++i) {
+                res[i] = vector[i] - vc[i];
+            }
+        }
+        else {
+            std::vector<std::thread> threads;
+            for (int i=0; i<cores; ++i) {
+                threads.emplace_back(mt_sub<T, S>, i, cores, shape[0], std::cref(vc.vector), std::cref(vector),
+                                     std::ref(res.vector));
+            }
+            for (std::thread &th: threads) {
+                th.join();
+            }
         }
         return res;
     }
@@ -73,9 +114,29 @@ public:
         if (shape[0] != vc.shape[0]) {
             return false;
         }
-        for (int i=0; i<shape[0]; ++i) {
-            if (vector[i] != vc[i]){
-                return false;
+        if (get_cores() == 0) {
+            for (int i=0; i<shape[0]; ++i) {
+                if (vector[i] != vc[i]){
+                    return false;
+                }
+            }
+        }
+        else {
+            std::atomic<int> flag (1);
+            std::vector<std::thread> threads;
+            for (int i=0; i<cores; ++i) {
+                threads.emplace_back(mt_com<T, S>, i, cores, shape[0], std::cref(vc.vector), std::cref(vector),
+                                     std::ref(flag));
+            }
+            while (flag != pow(2, cores)) {
+                if (flag == 0) {
+                    for (std::thread &th: threads) {
+//                        th.terminate();
+                    }
+                }
+            }
+            for (std::thread &th: threads) {
+                th.join();
             }
         }
         return true;
@@ -131,16 +192,14 @@ public:
         return res;
     }
 
-    template<typename S>  double mult(Vector<S> &vc1){
+    T mult(Vector<T> &vc1){
         if (shape[0] != vc1.get_size()){
             std::cerr << "Incorrect shapes of vectors!" << std::endl;
             exit(SHAPES_ERROR);
         }
-
         size_t i, j;
-        double result = 0;
+        T result = 0;
         for (i=0; i< shape[0]; ++i){
-
             result += vector[i]*vc1[i];
         }
         return result;
@@ -176,13 +235,25 @@ public:
         }
         return true;
     }
+
+    void set_cores(int num_cores) {
+        if (num_cores<0) {
+            std::cerr << "Cannot be negative amount of working cores!";
+            exit(CORES_ERROR);
+        }
+        cores = num_cores;
+    }
+
+    int get_cores() {
+        return cores;
+    }
 };
 
 template<typename T> std::ostream &operator<<(std::ostream& os, const std::vector<T>& vc) {
     os << "[";
     for (int i=0; i<vc.size(); ++i) {
         if (i != vc.size()-1) {
-            os << vc[i]<< "\n";
+            os << vc[i]<< ", ";
         } else {
             os << vc[i];
         }
