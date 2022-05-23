@@ -16,22 +16,40 @@ int main(int argc, char* argv[]) {
 //    vcc = vcc.fill(0);
     std::chrono::high_resolution_clock::time_point find_start;
     std::chrono::high_resolution_clock::time_point find_end;
-    std::vector<int> yes (5);
-    std::vector<int> yess (5);
+    std::vector<int> yes (10);
+    std::vector<int> yess (10);
     Vector vyes(yes);
     Vector vyess(yess);
     vyess.set_cores(0);
-    for (int i=0; i<5; ++i) {
-        vyes[i] = 4;
-        vyess[i] = 7;
+    vyess.set_method(1);
+    for (int i=0; i<10; ++i) {
+        vyes[i] = 3;
+        vyess[i] = 0;
+//    yes[i] = 3;
     }
+//    vyess[5] = 1;
+//    Matrix<int> g = vyess.transpose();
+
+    std::cout << vyess.isnull() << std::endl;
 //    Matrix hello = vyess.transpose();
     find_start = get_current_time_fenced();
-    long long hello = vyess.mult(vyes);
+//    long long hello = vyess.mult(vyes);
+//    vyess.isnull();
+//    vyess.mult(vyes);
+//    std::cout << vyess-vyes << std::endl;
+//    vyess-vyes;
 //    Vector kk = vyess*5;
+//    Vector<int> gh(yes);
+//    bool status = (vyess == vyes);
+//    Vector gh = vyess/5;
+//    vyess.mul(g);
+//    vyess.transpose();
+    vyess.isnull();
     find_end = get_current_time_fenced();
     std::cout << to_us(find_end-find_start) << std::endl;
-    std::cout << hello << std::endl;
+//    std::cout << gh << std::endl;
+//    std::cout << status << std::endl;
+//    std::cout << hello << std::endl;
 //    std::cout << nice << std::endl;
 //    std::cout << prikol << std::endl;
 //    std::cout << prikol.transpose() << std::endl;

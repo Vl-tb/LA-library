@@ -9,11 +9,18 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/main.cpp" "/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-debug/CMakeFiles/test.dir/main.cpp.o"
+  "/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/sources/ex.cpp" "/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-debug/CMakeFiles/test.dir/sources/ex.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "AppleClang")
 
+# Preprocessor definitions for this target.
+set(CMAKE_TARGET_DEFINITIONS_CXX
+  "TBB_USE_DEBUG"
+  )
+
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
+  "/opt/homebrew/include"
   )
 
 # The set of dependency files which are needed:

@@ -4,7 +4,7 @@
 # compile CXX with /Library/Developer/CommandLineTools/usr/bin/c++
 CXX_DEFINES = -Dla_library_EXPORTS
 
-CXX_INCLUDES = -isystem /opt/homebrew/include
+CXX_INCLUDES = 
 
 CXX_FLAGSarm64 = -O3 -DNDEBUG -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -fPIC -std=gnu++17
 

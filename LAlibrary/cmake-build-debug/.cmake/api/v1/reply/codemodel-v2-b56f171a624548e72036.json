@@ -9,7 +9,7 @@
 					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
 					"minimumCMakeVersion" : 
 					{
-						"string" : "3.20"
+						"string" : "3.16"
 					},
 					"projectIndex" : 0,
 					"source" : ".",
@@ -28,7 +28,7 @@
 					[
 						0
 					],
-					"name" : "la-library",
+					"name" : "test",
 					"targetIndexes" : 
 					[
 						0,
@@ -41,14 +41,14 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "la-library::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-la-library-Debug-826886fb6bf9154fbba3.json",
+					"jsonFile" : "target-la-library-Debug-b8dbdee86b10a40fd02a.json",
 					"name" : "la-library",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "test::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-test-Debug-69c203226abe2294bf26.json",
+					"jsonFile" : "target-test-Debug-cd80a8f2256a43ddc14c.json",
 					"name" : "test",
 					"projectIndex" : 0
 				}

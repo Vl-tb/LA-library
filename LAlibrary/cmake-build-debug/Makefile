@@ -172,6 +172,7 @@ sources/ex.o: sources/ex.cpp.o
 # target to build an object file
 sources/ex.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/la-library.dir/build.make CMakeFiles/la-library.dir/sources/ex.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/ex.cpp.o
 .PHONY : sources/ex.cpp.o
 
 sources/ex.i: sources/ex.cpp.i
@@ -180,6 +181,7 @@ sources/ex.i: sources/ex.cpp.i
 # target to preprocess a source file
 sources/ex.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/la-library.dir/build.make CMakeFiles/la-library.dir/sources/ex.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/ex.cpp.i
 .PHONY : sources/ex.cpp.i
 
 sources/ex.s: sources/ex.cpp.s
@@ -188,6 +190,7 @@ sources/ex.s: sources/ex.cpp.s
 # target to generate assembly for a file
 sources/ex.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/la-library.dir/build.make CMakeFiles/la-library.dir/sources/ex.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/ex.cpp.s
 .PHONY : sources/ex.cpp.s
 
 # Help Target
