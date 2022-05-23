@@ -88,6 +88,7 @@ la__library_EXTERNAL_OBJECTS =
 
 libla-library.dylib: CMakeFiles/la-library.dir/sources/ex.cpp.o
 libla-library.dylib: CMakeFiles/la-library.dir/build.make
+libla-library.dylib: /opt/homebrew/lib/libtbb.12.5.dylib
 libla-library.dylib: CMakeFiles/la-library.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX shared library libla-library.dylib"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/la-library.dir/link.txt --verbose=$(VERBOSE)

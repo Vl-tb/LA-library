@@ -257,15 +257,19 @@ public:
             return res;
         }
         else {
-            std::atomic<T> res (0);
+            std::vector<T> resv (vc1.get_size());
             std::vector<std::thread> threads;
             for (int i=0; i<cores; ++i) {
-                threads.emplace_back(mt_prod<T>, i, cores, std::cref(vector), std::cref(vc1.vector), std::ref(res));
+                threads.emplace_back(mt_prod<T>, i, cores, std::cref(vector), std::cref(vc1.vector), std::ref(resv));
             }
             for (std::thread &th: threads) {
                 th.join();
             }
-            return res;
+            T out = 0;
+            for (int i=0; i<resv.size(); ++i) {
+                out += resv[i];
+            }
+            return out;
         }
     }
 

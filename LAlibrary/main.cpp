@@ -1,19 +1,37 @@
 #include <iostream>
 #include "includes/matrix.h"
 #include "includes/vector.h"
+#include "includes/mt.h"
 //#include "includes/errors.h"
 
 int main(int argc, char* argv[]) {
-    Vector prikol(std::vector<int>{1,2,5});
+//    Vector prikol(std::vector<int>{1,2,5});
 //    prikol.set_cores(0);
-    Vector hello(std::vector<int>{6,4,3});
-    Vector nice(std::vector<double>{4.5, 7.5, 5.3});
-    Vector prikol_S(std::vector<int>{1,2,5});
+//    Vector hello(std::vector<int>{6,4,3});
+//    Vector nice(std::vector<double>{4.5, 7.5, 5.3});
+//    Vector prikol_S(std::vector<int>{1,2,5});
 //    Vector nice_S(std::vector<double>{4.5, 7.5, 5.3});
-    Vector<int> vc(5);
+//    Vector<int> vc(5);
 //    Vector<int> vcc(5);
 //    vcc = vcc.fill(0);
-
+    std::chrono::high_resolution_clock::time_point find_start;
+    std::chrono::high_resolution_clock::time_point find_end;
+    std::vector<int> yes (5);
+    std::vector<int> yess (5);
+    Vector vyes(yes);
+    Vector vyess(yess);
+    vyess.set_cores(0);
+    for (int i=0; i<5; ++i) {
+        vyes[i] = 4;
+        vyess[i] = 7;
+    }
+//    Matrix hello = vyess.transpose();
+    find_start = get_current_time_fenced();
+    long long hello = vyess.mult(vyes);
+//    Vector kk = vyess*5;
+    find_end = get_current_time_fenced();
+    std::cout << to_us(find_end-find_start) << std::endl;
+    std::cout << hello << std::endl;
 //    std::cout << nice << std::endl;
 //    std::cout << prikol << std::endl;
 //    std::cout << prikol.transpose() << std::endl;
@@ -22,11 +40,11 @@ int main(int argc, char* argv[]) {
 //    std::cout << (prikol == nice) << std::endl;
 //    std::cout << prikol.get_cores() << std::endl;
 //    std::cout << (prikol == prikol_S) << std::endl;
-//    std::cout << prikol + prikol_S << std::endl;
+//    std::cout << prikol + nice << std::endl;
 //    std::cout << prikol - prikol_S << std::endl;
 //    std::cout << nice + nice_S << std::endl;
 //    std::cout << nice - nice_S << std::endl;
-//    std::cout << (prikol / 4.4) << std::endl;
+//    std::cout << (prikol / 2) << std::endl;
 //    std::cout << (prikol * 3) << std::endl;
 //    std::cout << (nice / 4.2) << std::endl;
 //    std::cout << (nice * 3) << std::endl;

@@ -43,7 +43,7 @@
 				}
 			],
 			"type" : "STRING",
-			"value" : "Debug"
+			"value" : "Release"
 		},
 		{
 			"name" : "CMAKE_CACHEFILE_DIR",
@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-debug"
+			"value" : "/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -1210,6 +1210,18 @@
 			"value" : "/usr/sbin/sysctl"
 		},
 		{
+			"name" : "TBB_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "The directory containing a CMake configuration file for TBB."
+				}
+			],
+			"type" : "PATH",
+			"value" : "/opt/homebrew/lib/cmake/TBB"
+		},
+		{
 			"name" : "la-library_BINARY_DIR",
 			"properties" : 
 			[
@@ -1219,7 +1231,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-debug"
+			"value" : "/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release"
 		},
 		{
 			"name" : "la-library_IS_TOP_LEVEL",

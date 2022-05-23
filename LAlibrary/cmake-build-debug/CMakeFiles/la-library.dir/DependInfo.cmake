@@ -14,11 +14,13 @@ set(CMAKE_CXX_COMPILER_ID "AppleClang")
 
 # Preprocessor definitions for this target.
 set(CMAKE_TARGET_DEFINITIONS_CXX
+  "TBB_USE_DEBUG"
   "la_library_EXPORTS"
   )
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
+  "/opt/homebrew/include"
   )
 
 # The set of dependency files which are needed:
