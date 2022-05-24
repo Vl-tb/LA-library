@@ -130,68 +130,89 @@ la-library/fast:
 .PHONY : la-library/fast
 
 #=============================================================================
-# Target rules for targets named test
+# Target rules for targets named library
 
 # Build rule for target.
-test: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test
-.PHONY : test
+library: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 library
+.PHONY : library
 
 # fast build rule for target.
-test/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/build
-.PHONY : test/fast
+library/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/library.dir/build.make CMakeFiles/library.dir/build
+.PHONY : library/fast
 
-sources/ex.o: sources/ex.cpp.o
-.PHONY : sources/ex.o
-
-# target to build an object file
-sources/ex.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/la-library.dir/build.make CMakeFiles/la-library.dir/sources/ex.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/ex.cpp.o
-.PHONY : sources/ex.cpp.o
-
-sources/ex.i: sources/ex.cpp.i
-.PHONY : sources/ex.i
-
-# target to preprocess a source file
-sources/ex.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/la-library.dir/build.make CMakeFiles/la-library.dir/sources/ex.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/ex.cpp.i
-.PHONY : sources/ex.cpp.i
-
-sources/ex.s: sources/ex.cpp.s
-.PHONY : sources/ex.s
-
-# target to generate assembly for a file
-sources/ex.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/la-library.dir/build.make CMakeFiles/la-library.dir/sources/ex.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/ex.cpp.s
-.PHONY : sources/ex.cpp.s
-
-sources/main.o: sources/main.cpp.o
-.PHONY : sources/main.o
+sources/empty.o: sources/empty.cpp.o
+.PHONY : sources/empty.o
 
 # target to build an object file
-sources/main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/main.cpp.o
-.PHONY : sources/main.cpp.o
+sources/empty.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/la-library.dir/build.make CMakeFiles/la-library.dir/sources/empty.cpp.o
+.PHONY : sources/empty.cpp.o
 
-sources/main.i: sources/main.cpp.i
-.PHONY : sources/main.i
+sources/empty.i: sources/empty.cpp.i
+.PHONY : sources/empty.i
 
 # target to preprocess a source file
-sources/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/main.cpp.i
-.PHONY : sources/main.cpp.i
+sources/empty.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/la-library.dir/build.make CMakeFiles/la-library.dir/sources/empty.cpp.i
+.PHONY : sources/empty.cpp.i
 
-sources/main.s: sources/main.cpp.s
-.PHONY : sources/main.s
+sources/empty.s: sources/empty.cpp.s
+.PHONY : sources/empty.s
 
 # target to generate assembly for a file
-sources/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/main.cpp.s
-.PHONY : sources/main.cpp.s
+sources/empty.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/la-library.dir/build.make CMakeFiles/la-library.dir/sources/empty.cpp.s
+.PHONY : sources/empty.cpp.s
+
+test/main.o: test/main.cpp.o
+.PHONY : test/main.o
+
+# target to build an object file
+test/main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/library.dir/build.make CMakeFiles/library.dir/test/main.cpp.o
+.PHONY : test/main.cpp.o
+
+test/main.i: test/main.cpp.i
+.PHONY : test/main.i
+
+# target to preprocess a source file
+test/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/library.dir/build.make CMakeFiles/library.dir/test/main.cpp.i
+.PHONY : test/main.cpp.i
+
+test/main.s: test/main.cpp.s
+.PHONY : test/main.s
+
+# target to generate assembly for a file
+test/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/library.dir/build.make CMakeFiles/library.dir/test/main.cpp.s
+.PHONY : test/main.cpp.s
+
+test/vectorTest.o: test/vectorTest.cpp.o
+.PHONY : test/vectorTest.o
+
+# target to build an object file
+test/vectorTest.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/library.dir/build.make CMakeFiles/library.dir/test/vectorTest.cpp.o
+.PHONY : test/vectorTest.cpp.o
+
+test/vectorTest.i: test/vectorTest.cpp.i
+.PHONY : test/vectorTest.i
+
+# target to preprocess a source file
+test/vectorTest.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/library.dir/build.make CMakeFiles/library.dir/test/vectorTest.cpp.i
+.PHONY : test/vectorTest.cpp.i
+
+test/vectorTest.s: test/vectorTest.cpp.s
+.PHONY : test/vectorTest.s
+
+# target to generate assembly for a file
+test/vectorTest.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/library.dir/build.make CMakeFiles/library.dir/test/vectorTest.cpp.s
+.PHONY : test/vectorTest.cpp.s
 
 # Help Target
 help:
@@ -202,13 +223,16 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... la-library"
-	@echo "... test"
-	@echo "... sources/ex.o"
-	@echo "... sources/ex.i"
-	@echo "... sources/ex.s"
-	@echo "... sources/main.o"
-	@echo "... sources/main.i"
-	@echo "... sources/main.s"
+	@echo "... library"
+	@echo "... sources/empty.o"
+	@echo "... sources/empty.i"
+	@echo "... sources/empty.s"
+	@echo "... test/main.o"
+	@echo "... test/main.i"
+	@echo "... test/main.s"
+	@echo "... test/vectorTest.o"
+	@echo "... test/vectorTest.i"
+	@echo "... test/vectorTest.s"
 .PHONY : help
 
 

@@ -5,57 +5,13 @@
 		<Option title="la-library"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
-		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\..\opt\;CMake Files\..\..\..\..\..\..\..\opt\homebrew\;CMake Files\..\..\..\..\..\..\..\opt\homebrew\lib\;CMake Files\..\..\..\..\..\..\..\opt\homebrew\lib\cmake\;CMake Files\..\..\..\..\..\..\..\opt\homebrew\lib\cmake\TBB\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\lib\;CMake Files\lib\googletest\;CMake Files\lib\googletest\googlemock\;CMake Files\lib\googletest\googlemock\cmake\;CMake Files\lib\googletest\googletest\;CMake Files\lib\googletest\googletest\cmake\;CMake Files\sources\;CMake Files\test\;"/>
 		<Build>
 			<Target title="all">
 				<Option working_dir="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release"/>
 				<Option type="4"/>
 				<MakeCommands>
 					<Build command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="la-library">
-				<Option output="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/la-library" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="/opt/homebrew/include"/>
-					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/12.0.5/include"/>
-					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
-					<Add directory="/System/Library/Frameworks"/>
-					<Add directory="/Library/Frameworks"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/Makefile&quot;  VERBOSE=1 la-library"/>
-					<CompileFile command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="la-library/fast">
-				<Option output="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/la-library" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="/opt/homebrew/include"/>
-					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/12.0.5/include"/>
-					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
-					<Add directory="/System/Library/Frameworks"/>
-					<Add directory="/Library/Frameworks"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/Makefile&quot;  VERBOSE=1 la-library/fast"/>
 					<CompileFile command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
@@ -81,42 +37,463 @@
 					<DistClean command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
+			<Target title="list_install_components">
+				<Option working_dir="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/Makefile&quot;  VERBOSE=1 list_install_components"/>
+					<CompileFile command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install">
+				<Option working_dir="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/Makefile&quot;  VERBOSE=1 install"/>
+					<CompileFile command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install/local">
+				<Option working_dir="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/Makefile&quot;  VERBOSE=1 install/local"/>
+					<CompileFile command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install/strip">
+				<Option working_dir="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/Makefile&quot;  VERBOSE=1 install/strip"/>
+					<CompileFile command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="la-library_run">
+				<Option output="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/sources/la-library_run" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/sources"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/sources"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/12.0.5/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/sources/Makefile&quot;  VERBOSE=1 la-library_run"/>
+					<CompileFile command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/sources/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/sources/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/sources/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="la-library_run/fast">
+				<Option output="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/sources/la-library_run" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/sources"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/sources"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/12.0.5/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/sources/Makefile&quot;  VERBOSE=1 la-library_run/fast"/>
+					<CompileFile command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/sources/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/sources/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/sources/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="la-library_lib">
+				<Option output="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/sources/libla-library_lib.dylib" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/sources"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/sources"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/12.0.5/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/sources/Makefile&quot;  VERBOSE=1 la-library_lib"/>
+					<CompileFile command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/sources/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/sources/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/sources/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="la-library_lib/fast">
+				<Option output="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/sources/libla-library_lib.dylib" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/sources"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/sources"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/12.0.5/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/sources/Makefile&quot;  VERBOSE=1 la-library_lib/fast"/>
+					<CompileFile command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/sources/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/sources/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/sources/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="la-library_test">
+				<Option output="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/test/la-library_test" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/test"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/sources"/>
+					<Add directory="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/lib/googletest/googletest/include"/>
+					<Add directory="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/lib/googletest/googletest"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/12.0.5/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/test/Makefile&quot;  VERBOSE=1 la-library_test"/>
+					<CompileFile command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/test/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/test/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="la-library_test/fast">
+				<Option output="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/test/la-library_test" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/test"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/sources"/>
+					<Add directory="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/lib/googletest/googletest/include"/>
+					<Add directory="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/lib/googletest/googletest"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/12.0.5/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/test/Makefile&quot;  VERBOSE=1 la-library_test/fast"/>
+					<CompileFile command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/test/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/test/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="gmock">
+				<Option output="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/lib/libgmock.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/lib/googletest/googlemock"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/sources"/>
+					<Add directory="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/lib/googletest/googlemock/include"/>
+					<Add directory="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/lib/googletest/googlemock"/>
+					<Add directory="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/lib/googletest/googletest/include"/>
+					<Add directory="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/lib/googletest/googletest"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/12.0.5/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/lib/googletest/googlemock/Makefile&quot;  VERBOSE=1 gmock"/>
+					<CompileFile command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/lib/googletest/googlemock/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/lib/googletest/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/lib/googletest/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="gmock/fast">
+				<Option output="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/lib/libgmock.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/lib/googletest/googlemock"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/sources"/>
+					<Add directory="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/lib/googletest/googlemock/include"/>
+					<Add directory="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/lib/googletest/googlemock"/>
+					<Add directory="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/lib/googletest/googletest/include"/>
+					<Add directory="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/lib/googletest/googletest"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/12.0.5/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/lib/googletest/googlemock/Makefile&quot;  VERBOSE=1 gmock/fast"/>
+					<CompileFile command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/lib/googletest/googlemock/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/lib/googletest/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/lib/googletest/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="gmock_main">
+				<Option output="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/lib/libgmock_main.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/lib/googletest/googlemock"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/sources"/>
+					<Add directory="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/lib/googletest/googlemock/include"/>
+					<Add directory="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/lib/googletest/googlemock"/>
+					<Add directory="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/lib/googletest/googletest/include"/>
+					<Add directory="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/lib/googletest/googletest"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/12.0.5/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/lib/googletest/googlemock/Makefile&quot;  VERBOSE=1 gmock_main"/>
+					<CompileFile command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/lib/googletest/googlemock/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/lib/googletest/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/lib/googletest/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="gmock_main/fast">
+				<Option output="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/lib/libgmock_main.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/lib/googletest/googlemock"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/sources"/>
+					<Add directory="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/lib/googletest/googlemock/include"/>
+					<Add directory="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/lib/googletest/googlemock"/>
+					<Add directory="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/lib/googletest/googletest/include"/>
+					<Add directory="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/lib/googletest/googletest"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/12.0.5/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/lib/googletest/googlemock/Makefile&quot;  VERBOSE=1 gmock_main/fast"/>
+					<CompileFile command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/lib/googletest/googlemock/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/lib/googletest/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/lib/googletest/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="gtest">
+				<Option output="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/lib/libgtest.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/lib/googletest/googletest"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/sources"/>
+					<Add directory="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/lib/googletest/googletest/include"/>
+					<Add directory="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/lib/googletest/googletest"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/12.0.5/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/lib/googletest/googletest/Makefile&quot;  VERBOSE=1 gtest"/>
+					<CompileFile command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/lib/googletest/googletest/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/lib/googletest/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/lib/googletest/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="gtest/fast">
+				<Option output="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/lib/libgtest.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/lib/googletest/googletest"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/sources"/>
+					<Add directory="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/lib/googletest/googletest/include"/>
+					<Add directory="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/lib/googletest/googletest"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/12.0.5/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/lib/googletest/googletest/Makefile&quot;  VERBOSE=1 gtest/fast"/>
+					<CompileFile command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/lib/googletest/googletest/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/lib/googletest/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/lib/googletest/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="gtest_main">
+				<Option output="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/lib/libgtest_main.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/lib/googletest/googletest"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/sources"/>
+					<Add directory="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/lib/googletest/googletest/include"/>
+					<Add directory="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/lib/googletest/googletest"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/12.0.5/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/lib/googletest/googletest/Makefile&quot;  VERBOSE=1 gtest_main"/>
+					<CompileFile command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/lib/googletest/googletest/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/lib/googletest/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/lib/googletest/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="gtest_main/fast">
+				<Option output="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/lib/libgtest_main.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/lib/googletest/googletest"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/sources"/>
+					<Add directory="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/lib/googletest/googletest/include"/>
+					<Add directory="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/lib/googletest/googletest"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/12.0.5/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/lib/googletest/googletest/Makefile&quot;  VERBOSE=1 gtest_main/fast"/>
+					<CompileFile command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/lib/googletest/googletest/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/lib/googletest/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/opt/homebrew/bin/gmake -j8 -f &quot;/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/lib/googletest/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
 		</Build>
-		<Unit filename="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/includes/errors.h">
-			<Option target="la-library"/>
+		<Unit filename="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/lib/googletest/googlemock/src/gmock-all.cc">
+			<Option target="gmock"/>
 		</Unit>
-		<Unit filename="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/includes/matrix.h">
-			<Option target="la-library"/>
+		<Unit filename="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/lib/googletest/googlemock/src/gmock_main.cc">
+			<Option target="gmock_main"/>
 		</Unit>
-		<Unit filename="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/includes/mt.h">
-			<Option target="la-library"/>
+		<Unit filename="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/lib/googletest/googletest/src/gtest-all.cc">
+			<Option target="gtest"/>
 		</Unit>
-		<Unit filename="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/includes/mt_tbb.h">
-			<Option target="la-library"/>
+		<Unit filename="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/lib/googletest/googletest/src/gtest_main.cc">
+			<Option target="gtest_main"/>
 		</Unit>
-		<Unit filename="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/includes/vector.h">
-			<Option target="la-library"/>
+		<Unit filename="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/sources/errors.h">
+			<Option target="la-library_run"/>
+			<Option target="la-library_lib"/>
 		</Unit>
-		<Unit filename="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/main.cpp">
-			<Option target="la-library"/>
+		<Unit filename="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/sources/matrix.h">
+			<Option target="la-library_run"/>
+			<Option target="la-library_lib"/>
 		</Unit>
-		<Unit filename="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/sources/ex.cpp">
-			<Option target="la-library"/>
+		<Unit filename="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/sources/mt.h">
+			<Option target="la-library_run"/>
+			<Option target="la-library_lib"/>
+		</Unit>
+		<Unit filename="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/sources/mt_tbb.h">
+			<Option target="la-library_run"/>
+			<Option target="la-library_lib"/>
+		</Unit>
+		<Unit filename="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/sources/smth.cpp">
+			<Option target="la-library_run"/>
+			<Option target="la-library_lib"/>
+		</Unit>
+		<Unit filename="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/sources/vector.h">
+			<Option target="la-library_run"/>
+			<Option target="la-library_lib"/>
+		</Unit>
+		<Unit filename="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/test/ex.cpp">
+			<Option target="la-library_test"/>
+		</Unit>
+		<Unit filename="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/test/main.cpp">
+			<Option target="la-library_test"/>
+		</Unit>
+		<Unit filename="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/test/smth.h">
+			<Option target="la-library_test"/>
 		</Unit>
 		<Unit filename="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
-		<Unit filename="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/../../../../../../../opt/homebrew/lib/cmake/TBB/TBBConfig.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\opt\homebrew\lib\cmake\TBB\"/>
+		<Unit filename="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/lib/googletest/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\lib\googletest\"/>
 		</Unit>
-		<Unit filename="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/../../../../../../../opt/homebrew/lib/cmake/TBB/TBBConfigVersion.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\opt\homebrew\lib\cmake\TBB\"/>
+		<Unit filename="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/lib/googletest/googlemock/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\lib\googletest\googlemock\"/>
 		</Unit>
-		<Unit filename="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/../../../../../../../opt/homebrew/lib/cmake/TBB/TBBTargets-release.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\opt\homebrew\lib\cmake\TBB\"/>
+		<Unit filename="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/lib/googletest/googlemock/cmake/gmock.pc.in">
+			<Option virtualFolder="CMake Files\lib\googletest\googlemock\cmake\"/>
 		</Unit>
-		<Unit filename="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/../../../../../../../opt/homebrew/lib/cmake/TBB/TBBTargets.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\opt\homebrew\lib\cmake\TBB\"/>
+		<Unit filename="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/lib/googletest/googlemock/cmake/gmock_main.pc.in">
+			<Option virtualFolder="CMake Files\lib\googletest\googlemock\cmake\"/>
+		</Unit>
+		<Unit filename="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/lib/googletest/googletest/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\lib\googletest\googletest\"/>
+		</Unit>
+		<Unit filename="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/lib/googletest/googletest/cmake/Config.cmake.in">
+			<Option virtualFolder="CMake Files\lib\googletest\googletest\cmake\"/>
+		</Unit>
+		<Unit filename="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/lib/googletest/googletest/cmake/gtest.pc.in">
+			<Option virtualFolder="CMake Files\lib\googletest\googletest\cmake\"/>
+		</Unit>
+		<Unit filename="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/lib/googletest/googletest/cmake/gtest_main.pc.in">
+			<Option virtualFolder="CMake Files\lib\googletest\googletest\cmake\"/>
+		</Unit>
+		<Unit filename="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/lib/googletest/googletest/cmake/internal_utils.cmake">
+			<Option virtualFolder="CMake Files\lib\googletest\googletest\cmake\"/>
+		</Unit>
+		<Unit filename="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/sources/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\sources\"/>
+		</Unit>
+		<Unit filename="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/test/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\test\"/>
 		</Unit>
 	</Project>
 </CodeBlocks_project_file>

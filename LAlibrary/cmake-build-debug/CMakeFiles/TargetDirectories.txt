@@ -1,4 +1,4 @@
 /Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-debug/CMakeFiles/la-library.dir
-/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-debug/CMakeFiles/test.dir
+/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-debug/CMakeFiles/library.dir
 /Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-debug/CMakeFiles/edit_cache.dir
 /Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-debug/CMakeFiles/rebuild_cache.dir

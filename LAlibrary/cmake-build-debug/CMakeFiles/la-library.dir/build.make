@@ -66,27 +66,27 @@ include CMakeFiles/la-library.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/la-library.dir/flags.make
 
-CMakeFiles/la-library.dir/sources/ex.cpp.o: CMakeFiles/la-library.dir/flags.make
-CMakeFiles/la-library.dir/sources/ex.cpp.o: ../sources/ex.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/la-library.dir/sources/ex.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/la-library.dir/sources/ex.cpp.o -c /Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/sources/ex.cpp
+CMakeFiles/la-library.dir/sources/empty.cpp.o: CMakeFiles/la-library.dir/flags.make
+CMakeFiles/la-library.dir/sources/empty.cpp.o: ../sources/empty.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/la-library.dir/sources/empty.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/la-library.dir/sources/empty.cpp.o -c /Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/sources/empty.cpp
 
-CMakeFiles/la-library.dir/sources/ex.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/la-library.dir/sources/ex.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/sources/ex.cpp > CMakeFiles/la-library.dir/sources/ex.cpp.i
+CMakeFiles/la-library.dir/sources/empty.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/la-library.dir/sources/empty.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/sources/empty.cpp > CMakeFiles/la-library.dir/sources/empty.cpp.i
 
-CMakeFiles/la-library.dir/sources/ex.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/la-library.dir/sources/ex.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/sources/ex.cpp -o CMakeFiles/la-library.dir/sources/ex.cpp.s
+CMakeFiles/la-library.dir/sources/empty.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/la-library.dir/sources/empty.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/sources/empty.cpp -o CMakeFiles/la-library.dir/sources/empty.cpp.s
 
 # Object files for target la-library
 la__library_OBJECTS = \
-"CMakeFiles/la-library.dir/sources/ex.cpp.o"
+"CMakeFiles/la-library.dir/sources/empty.cpp.o"
 
 # External object files for target la-library
 la__library_EXTERNAL_OBJECTS =
 
-libla-library.dylib: CMakeFiles/la-library.dir/sources/ex.cpp.o
+libla-library.dylib: CMakeFiles/la-library.dir/sources/empty.cpp.o
 libla-library.dylib: CMakeFiles/la-library.dir/build.make
 libla-library.dylib: CMakeFiles/la-library.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX shared library libla-library.dylib"

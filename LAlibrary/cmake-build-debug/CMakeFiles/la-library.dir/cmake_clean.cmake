@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/la-library.dir/sources/ex.cpp.o"
+  "CMakeFiles/la-library.dir/sources/empty.cpp.o"
   "libla-library.dylib"
   "libla-library.pdb"
 )
