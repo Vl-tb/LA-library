@@ -1,0 +1,17 @@
+Total time of multiplication with 1 cores = 8996362
+Total time of multiplication with 2 cores = 4406421
+Total time of multiplication with 3 cores = 4315099
+Total time of multiplication with 4 cores = 4099860
+Total time of multiplication with 5 cores = 4089213
+Total time of multiplication with 6 cores = 3855847
+Total time of multiplication with 7 cores = 3878547
+Total time of multiplication with 8 cores = 3853094
+Total time of multiplication with 9 cores = 3839420
+Total time of multiplication with 10 cores = 3837316
+Total time of multiplication with 11 cores = 3842429
+Total time of multiplication with 12 cores = 3820210
+Total time of multiplication with 13 cores = 3851936
+Total time of multiplication with 14 cores = 3835185
+Total time of multiplication with 15 cores = 3825363
+Total time of multiplication with 16 cores = 3847801
+8996362, 4406421, 4315099, 4099860, 4089213, 3855847, 3878547, 3853094, 3839420, 3837316, 3842429, 3820210, 3851936, 3835185, 3825363, 3847801, 
