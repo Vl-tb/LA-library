@@ -18,8 +18,10 @@ set(SOURCES sources/ex.cpp)
 
 add_library(la-library SHARED includes/vector.h includes/matrix.h includes/errors.h sources/ex.cpp includes/mt.h
         includes/mt_tbb.h)
-add_executable(${PROJECT_NAME} main.cpp ${INCLUDES} ${SOURCES})
+add_executable(${PROJECT_NAME} sources/main.cpp ${INCLUDES} ${SOURCES})
 
 find_package(TBB REQUIRED)
+find_package (Eigen3 3.3 REQUIRED NO_MODULE)
 
 target_link_libraries(${PROJECT_NAME} TBB::tbb)
+target_link_libraries (${PROJECT_NAME} Eigen3::Eigen)

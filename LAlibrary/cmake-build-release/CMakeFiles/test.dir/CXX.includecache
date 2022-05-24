@@ -50,14 +50,14 @@ mt.h
 mt_tbb.h
 /Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/includes/mt_tbb.h
 
-/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/main.cpp
+/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/sources/main.cpp
 iostream
 -
-includes/matrix.h
+../includes/matrix.h
 /Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/includes/matrix.h
-includes/vector.h
+../includes/vector.h
 /Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/includes/vector.h
-includes/mt.h
+../includes/mt.h
 /Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/includes/mt.h
 
 /opt/homebrew/include/oneapi/tbb/blocked_range.h

@@ -6,7 +6,7 @@
 		},
 		{
 			"isGenerated" : true,
-			"path" : "cmake-build-debug/CMakeFiles/3.22.3/CMakeSystem.cmake"
+			"path" : "cmake-build-release/CMakeFiles/3.22.3/CMakeSystem.cmake"
 		},
 		{
 			"isCMake" : true,
@@ -20,11 +20,11 @@
 		},
 		{
 			"isGenerated" : true,
-			"path" : "cmake-build-debug/CMakeFiles/3.22.3/CMakeCCompiler.cmake"
+			"path" : "cmake-build-release/CMakeFiles/3.22.3/CMakeCCompiler.cmake"
 		},
 		{
 			"isGenerated" : true,
-			"path" : "cmake-build-debug/CMakeFiles/3.22.3/CMakeCXXCompiler.cmake"
+			"path" : "cmake-build-release/CMakeFiles/3.22.3/CMakeCXXCompiler.cmake"
 		},
 		{
 			"isCMake" : true,
@@ -176,12 +176,24 @@
 		{
 			"isExternal" : true,
 			"path" : "/opt/homebrew/lib/cmake/TBB/TBBTargets-release.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/eigen3/cmake/Eigen3ConfigVersion.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/eigen3/cmake/Eigen3Config.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/eigen3/cmake/Eigen3Targets.cmake"
 		}
 	],
 	"kind" : "cmakeFiles",
 	"paths" : 
 	{
-		"build" : "/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-debug",
+		"build" : "/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release",
 		"source" : "/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary"
 	},
 	"version" : 

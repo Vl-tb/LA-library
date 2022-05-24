@@ -66,18 +66,18 @@ include CMakeFiles/test.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/test.dir/flags.make
 
-CMakeFiles/test.dir/main.cpp.o: CMakeFiles/test.dir/flags.make
-CMakeFiles/test.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/test.dir/main.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/test.dir/main.cpp.o -c /Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/main.cpp
+CMakeFiles/test.dir/sources/main.cpp.o: CMakeFiles/test.dir/flags.make
+CMakeFiles/test.dir/sources/main.cpp.o: ../sources/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/test.dir/sources/main.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/test.dir/sources/main.cpp.o -c /Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/sources/main.cpp
 
-CMakeFiles/test.dir/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/test.dir/main.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/main.cpp > CMakeFiles/test.dir/main.cpp.i
+CMakeFiles/test.dir/sources/main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/test.dir/sources/main.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/sources/main.cpp > CMakeFiles/test.dir/sources/main.cpp.i
 
-CMakeFiles/test.dir/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test.dir/main.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/main.cpp -o CMakeFiles/test.dir/main.cpp.s
+CMakeFiles/test.dir/sources/main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test.dir/sources/main.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/sources/main.cpp -o CMakeFiles/test.dir/sources/main.cpp.s
 
 CMakeFiles/test.dir/sources/ex.cpp.o: CMakeFiles/test.dir/flags.make
 CMakeFiles/test.dir/sources/ex.cpp.o: ../sources/ex.cpp
@@ -94,13 +94,13 @@ CMakeFiles/test.dir/sources/ex.cpp.s: cmake_force
 
 # Object files for target test
 test_OBJECTS = \
-"CMakeFiles/test.dir/main.cpp.o" \
+"CMakeFiles/test.dir/sources/main.cpp.o" \
 "CMakeFiles/test.dir/sources/ex.cpp.o"
 
 # External object files for target test
 test_EXTERNAL_OBJECTS =
 
-test: CMakeFiles/test.dir/main.cpp.o
+test: CMakeFiles/test.dir/sources/main.cpp.o
 test: CMakeFiles/test.dir/sources/ex.cpp.o
 test: CMakeFiles/test.dir/build.make
 test: /opt/homebrew/lib/libtbb.12.5.dylib

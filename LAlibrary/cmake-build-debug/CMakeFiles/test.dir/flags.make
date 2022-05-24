@@ -4,7 +4,7 @@
 # compile CXX with /Library/Developer/CommandLineTools/usr/bin/c++
 CXX_DEFINES = -DTBB_USE_DEBUG
 
-CXX_INCLUDES = -isystem /opt/homebrew/include
+CXX_INCLUDES = -isystem /opt/homebrew/include -isystem /opt/homebrew/include/eigen3
 
 CXX_FLAGSarm64 = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -std=gnu++17
 

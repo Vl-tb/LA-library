@@ -5,7 +5,7 @@
 		<Option title="test"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
-		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\..\opt\;CMake Files\..\..\..\..\..\..\..\opt\homebrew\;CMake Files\..\..\..\..\..\..\..\opt\homebrew\lib\;CMake Files\..\..\..\..\..\..\..\opt\homebrew\lib\cmake\;CMake Files\..\..\..\..\..\..\..\opt\homebrew\lib\cmake\TBB\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\..\opt\;CMake Files\..\..\..\..\..\..\..\opt\homebrew\;CMake Files\..\..\..\..\..\..\..\opt\homebrew\lib\;CMake Files\..\..\..\..\..\..\..\opt\homebrew\lib\cmake\;CMake Files\..\..\..\..\..\..\..\opt\homebrew\lib\cmake\TBB\;CMake Files\..\..\..\..\..\..\..\opt\homebrew\share\;CMake Files\..\..\..\..\..\..\..\opt\homebrew\share\eigen3\;CMake Files\..\..\..\..\..\..\..\opt\homebrew\share\eigen3\cmake\;"/>
 		<Build>
 			<Target title="all">
 				<Option working_dir="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-release"/>
@@ -67,6 +67,7 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="/opt/homebrew/include"/>
+					<Add directory="/opt/homebrew/include/eigen3"/>
 					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/12.0.5/include"/>
@@ -89,6 +90,7 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="/opt/homebrew/include"/>
+					<Add directory="/opt/homebrew/include/eigen3"/>
 					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/12.0.5/include"/>
@@ -144,11 +146,11 @@
 			<Option target="la-library"/>
 			<Option target="test"/>
 		</Unit>
-		<Unit filename="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/main.cpp">
-			<Option target="test"/>
-		</Unit>
 		<Unit filename="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/sources/ex.cpp">
 			<Option target="la-library"/>
+			<Option target="test"/>
+		</Unit>
+		<Unit filename="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/sources/main.cpp">
 			<Option target="test"/>
 		</Unit>
 		<Unit filename="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/CMakeLists.txt">
@@ -165,6 +167,15 @@
 		</Unit>
 		<Unit filename="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/../../../../../../../opt/homebrew/lib/cmake/TBB/TBBTargets.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\opt\homebrew\lib\cmake\TBB\"/>
+		</Unit>
+		<Unit filename="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/../../../../../../../opt/homebrew/share/eigen3/cmake/Eigen3Config.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\opt\homebrew\share\eigen3\cmake\"/>
+		</Unit>
+		<Unit filename="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/../../../../../../../opt/homebrew/share/eigen3/cmake/Eigen3ConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\opt\homebrew\share\eigen3\cmake\"/>
+		</Unit>
+		<Unit filename="/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/../../../../../../../opt/homebrew/share/eigen3/cmake/Eigen3Targets.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\opt\homebrew\share\eigen3\cmake\"/>
 		</Unit>
 	</Project>
 </CodeBlocks_project_file>

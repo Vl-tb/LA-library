@@ -39,6 +39,9 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/opt/homebrew/lib/cmake/TBB/TBBConfigVersion.cmake"
   "/opt/homebrew/lib/cmake/TBB/TBBTargets-release.cmake"
   "/opt/homebrew/lib/cmake/TBB/TBBTargets.cmake"
+  "/opt/homebrew/share/eigen3/cmake/Eigen3Config.cmake"
+  "/opt/homebrew/share/eigen3/cmake/Eigen3ConfigVersion.cmake"
+  "/opt/homebrew/share/eigen3/cmake/Eigen3Targets.cmake"
   )
 
 # The corresponding makefile is:

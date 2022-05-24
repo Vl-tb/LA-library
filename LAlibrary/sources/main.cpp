@@ -1,7 +1,7 @@
 #include <iostream>
-#include "includes/matrix.h"
-#include "includes/vector.h"
-#include "includes/mt.h"
+#include "../includes/matrix.h"
+#include "../includes/vector.h"
+#include "../includes/mt.h"
 //#include "includes/errors.h"
 
 int main(int argc, char* argv[]) {
