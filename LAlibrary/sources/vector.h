@@ -320,7 +320,7 @@ public:
             }
         }
         else {
-            T out = 0;
+            T out = 0.0;
             mt_tbb_prod<T>(std::cref(vector), std::cref(vc1.vector), std::ref(out));
 
             return out;

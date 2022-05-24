@@ -31,6 +31,8 @@ mt.h
 /Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/sources/mt.h
 vector.h
 /Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/sources/vector.h
+iostream
+-
 
 /Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/sources/mt_tbb.h
 vector.h
@@ -62,23 +64,15 @@ mt.h
 mt_tbb.h
 /Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/sources/mt_tbb.h
 
-/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/test/main.cpp
-iostream
--
-../sources/matrix.h
-/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/sources/matrix.h
-gtest/gtest.h
--
-../sources/vector.h
-/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/sources/vector.h
-../sources/mt.h
-/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/sources/mt.h
-
 /Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/test/vectorTest.cpp
 gtest/gtest.h
 -
+../sources/matrix.h
+/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/sources/matrix.h
 ../sources/vector.h
 /Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/sources/vector.h
+../sources/errors.h
+/Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/sources/errors.h
 
 /opt/homebrew/include/gtest/gtest-death-test.h
 gtest/internal/gtest-death-test-internal.h
