@@ -2,6 +2,8 @@
 #define LA_LIBRARY_MT_H
 
 #include "vector.h"
+#include <iostream>
+
 
 template<typename T>
 class Vector;

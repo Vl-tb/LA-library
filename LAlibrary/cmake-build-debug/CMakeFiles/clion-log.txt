@@ -1,4 +1,4 @@
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" -S /Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary -B /Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-debug
+/opt/clion/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/opt/clion/bin/ninja/linux/ninja -G Ninja /home/ivddorrka/testing/LA-library/LAlibrary
 -- Configuring done
 -- Generating done
--- Build files have been written to: /Users/vladprotsenko/Documents/ACS/project/LA-library/LAlibrary/cmake-build-debug
+-- Build files have been written to: /home/ivddorrka/testing/LA-library/LAlibrary/cmake-build-debug

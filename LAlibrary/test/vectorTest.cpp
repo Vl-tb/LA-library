@@ -1,4 +1,4 @@
-#include <gtest/gtest.h>
+//#include <gtest/gtest.h>
 #include "../sources/vector.h"
 
 //class VectorTest : public ::testing::Test {
@@ -27,10 +27,10 @@
 //    // Class members declared here can be used by all tests in the test suite
 //    // for Foo.
 //};
-
-TEST(VectorTest, ConstructorDim) {
-    Vector<int> vec1(std::vector<int>{1,2,5});
-    ASSERT_EQ(&vec1, &vec1);
-}
+//
+//TEST(VectorTest, ConstructorDim) {
+//    Vector<int> vec1(std::vector<int>{1,2,5});
+//    ASSERT_EQ(&vec1, &vec1);
+//}
 
 

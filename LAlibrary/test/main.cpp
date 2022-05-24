@@ -1,14 +1,21 @@
 #include <iostream>
 #include "../sources/matrix.h"
-#include <gtest/gtest.h>
+//#include <gtest/gtest.h>
 #include "../sources/vector.h"
 #include "../sources/mt.h"
 //#include "sources/errors.h"
 
 
 int main(int argc, char* argv[]) {
-        ::testing::InitGoogleTest(&argc, argv);
-        return RUN_ALL_TESTS();
+//        ::testing::InitGoogleTest(&argc, argv);
+//        return RUN_ALL_TESTS();
+    std::vector<std::vector<int>> vector_vectors1{{1, 2}, {3, 4}, {5, 6}};
+    std::vector<std::vector<int>> vector_vectors2{{1, 2, 3}, {3, 4, 5}};
+
+    Matrix<int> mt_vec_vec(vector_vectors1);
+    Matrix<int> mt_vec_vec2(vector_vectors2);
+
+    return 0;
 }
 //    Vector prikol(std::vector<int>{1,2,5});
 //    prikol.set_cores(0);

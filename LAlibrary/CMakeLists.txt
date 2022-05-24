@@ -12,7 +12,7 @@ set(SOURCES sources/mt.h
         sources/mt_tbb.h
         sources/vector.h
         sources/matrix.h
-        test/vectorTest.cpp)
+        test/main.cpp)
 
 #set(test test/ex.cpp)
 
@@ -22,9 +22,9 @@ add_library(la-library SHARED sources/vector.h sources/matrix.h sources/errors.h
 add_executable(${PROJECT_NAME} test/main.cpp ${INCLUDES} ${SOURCES})
 
 find_package(TBB REQUIRED)
-find_package(GTest REQUIRED)
-find_package (Eigen3 3.3 REQUIRED NO_MODULE)
+#find_package(GTest REQUIRED)
+#find_package (Eigen3 3.3 REQUIRED NO_MODULE)
 
 target_link_libraries(${PROJECT_NAME} TBB::tbb)
-target_link_libraries(${PROJECT_NAME} Eigen3::Eigen)
-target_link_libraries(${PROJECT_NAME} GTest::GTest)
+#target_link_libraries(${PROJECT_NAME} Eigen3::Eigen)
+#target_link_libraries(${PROJECT_NAME} GTest::GTest)
