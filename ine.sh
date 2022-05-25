@@ -1,1 +1,0 @@
-./bin/template >> out.txt

@@ -10,6 +10,7 @@
 #include <math.h>
 #include <pthread.h>
 #include "mt.h"
+#include "mt_tbb_vlad.h"
 
 template<typename T>
 class Matrix;
@@ -21,6 +22,7 @@ public:
     std::vector<int> shape;
     std::vector<T> vector;
     int size;
+    int method=0;
     int cores = std::thread::hardware_concurrency();
 
 
@@ -42,19 +44,24 @@ public:
         size = dim;
         shape = std::vector<int> {dim, 1};
         vector = std::vector<T> (dim);
-        if (cores == 0) {
-            for (int i=0; i<dim; ++i) {
-                vector[i] = vc[i];
+        if (method == 0) {
+            if (cores == 0) {
+                for (int i=0; i<dim; ++i) {
+                    vector[i] = vc[i];
+                }
+            }
+            else {
+                std::vector<std::thread> threads;
+                for (int i=0; i<cores; ++i) {
+                    threads.emplace_back(mt_assign<T>, i, cores, dim, std::ref(vc), std::ref(vector));
+                }
+                for (std::thread &th: threads) {
+                    th.join();
+                }
             }
         }
         else {
-            std::vector<std::thread> threads;
-            for (int i=0; i<cores; ++i) {
-                threads.emplace_back(mt_assign<T>, i, cores, dim, std::ref(vc), std::ref(vector));
-            }
-            for (std::thread &th: threads) {
-                th.join();
-            }
+            mt_tbb_assign<T>(std::cref(vc), std::ref(vector));
         }
     }
 
@@ -69,20 +76,25 @@ public:
             exit(SHAPES_ERROR); //TODO Error ne shapes
         }
         Vector<T> res(shape[0]);
-        if (get_cores() == 0) {
-            for (int i=0; i<shape[0]; ++i) {
-                res[i] = vector[i] + vc[i];
+        if (method == 0) {
+            if (get_cores() == 0) {
+                for (int i=0; i<shape[0]; ++i) {
+                    res[i] = vector[i] + vc[i];
+                }
+            }
+            else {
+                std::vector<std::thread> threads;
+                for (int i=0; i<cores; ++i) {
+                    threads.emplace_back(mt_add<T, S>, i, cores, shape[0], std::cref(vc.vector), std::cref(vector),
+                                         std::ref(res.vector));
+                }
+                for (std::thread &th: threads) {
+                    th.join();
+                }
             }
         }
         else {
-            std::vector<std::thread> threads;
-            for (int i=0; i<cores; ++i) {
-                threads.emplace_back(mt_add<T, S>, i, cores, shape[0], std::cref(vc.vector), std::cref(vector),
-                                     std::ref(res.vector));
-            }
-            for (std::thread &th: threads) {
-                th.join();
-            }
+            mt_tbb_add<T, S>(std::cref(vc.vector), std::cref(vector), std::ref(res.vector));
         }
         return res;
     }
@@ -93,20 +105,25 @@ public:
             exit(SHAPES_ERROR); //TODO Error ne shapes
         }
         Vector<T> res(shape[0]);
-        if (get_cores() == 0) {
-            for (int i=0; i<shape[0]; ++i) {
-                res[i] = vector[i] - vc[i];
+        if (method == 0) {
+            if (get_cores() == 0) {
+                for (int i=0; i<shape[0]; ++i) {
+                    res[i] = vector[i] - vc[i];
+                }
+            }
+            else {
+                std::vector<std::thread> threads;
+                for (int i=0; i<cores; ++i) {
+                    threads.emplace_back(mt_sub<T, S>, i, cores, shape[0], std::cref(vc.vector), std::cref(vector),
+                                         std::ref(res.vector));
+                }
+                for (std::thread &th: threads) {
+                    th.join();
+                }
             }
         }
         else {
-            std::vector<std::thread> threads;
-            for (int i=0; i<cores; ++i) {
-                threads.emplace_back(mt_sub<T, S>, i, cores, shape[0], std::cref(vc.vector), std::cref(vector),
-                                     std::ref(res.vector));
-            }
-            for (std::thread &th: threads) {
-                th.join();
-            }
+            mt_tbb_sub<T, S>(std::cref(vc.vector), std::cref(vector), std::ref(res.vector));
         }
         return res;
     }
@@ -115,32 +132,41 @@ public:
         if (shape[0] != vc.shape[0]) {
             return false;
         }
-        if (get_cores() == 0) {
-            for (int i=0; i<shape[0]; ++i) {
-                if (vector[i] != vc[i]){
+        if (method == 0) {
+            if (get_cores() == 0) {
+                for (int i=0; i<shape[0]; ++i) {
+                    if (vector[i] != vc[i]){
+                        return false;
+                    }
+                }
+            }
+            else {
+                std::atomic<int> flag (0);
+                std::vector<std::thread> threads;
+                for (int i=0; i<cores; ++i) {
+                    threads.emplace_back(mt_com<T, S>, i, cores, shape[0], std::cref(vc.vector), std::cref(vector),
+                                         std::ref(flag));
+                }
+                while (flag != get_cores()) {
+                    if (flag < 0) {
+                        for (std::thread &th: threads) {
+                            pthread_cancel(th.native_handle());
+                        }
+                        break;
+                    }
+                }
+                for (std::thread &th: threads) {
+                    th.join();
+                }
+                if (flag != get_cores()) {
                     return false;
                 }
             }
         }
         else {
-            std::atomic<int> flag (0);
-            std::vector<std::thread> threads;
-            for (int i=0; i<cores; ++i) {
-                threads.emplace_back(mt_com<T, S>, i, cores, shape[0], std::cref(vc.vector), std::cref(vector),
-                                     std::ref(flag));
-            }
-            while (flag != get_cores()) {
-                if (flag < 0) {
-                    for (std::thread &th: threads) {
-                        pthread_cancel(th.native_handle());
-                    }
-                    break;
-                }
-            }
-            for (std::thread &th: threads) {
-                th.join();
-            }
-            if (flag != get_cores()) {
+            int flag=1;
+            mt_tbb_com<T, S>(std::ref(flag), std::cref(vc.vector), std::cref(vector));
+            if (!flag) {
                 return false;
             }
         }
@@ -149,20 +175,25 @@ public:
 
     template<typename S> Vector<double> operator*(S koef) {
         Vector<double> res(shape[0]);
-        if (get_cores() == 0) {
-            for (int i=0; i<shape[0]; ++i) {
-                res[i] = static_cast<double>(vector[i]) * static_cast<double>(koef);
+        if (method == 0) {
+            if (get_cores() == 0) {
+                for (int i=0; i<shape[0]; ++i) {
+                    res[i] = static_cast<double>(vector[i]) * static_cast<double>(koef);
+                }
+            }
+            else {
+                std::vector<std::thread> threads;
+                for (int i=0; i<cores; ++i) {
+                    threads.emplace_back(mt_mul<T, S>, i, cores, shape[0], koef, std::cref(vector),
+                                         std::ref(res.vector));
+                }
+                for (std::thread &th: threads) {
+                    th.join();
+                }
             }
         }
         else {
-            std::vector<std::thread> threads;
-            for (int i=0; i<cores; ++i) {
-                threads.emplace_back(mt_mul<T, S>, i, cores, shape[0], koef, std::cref(vector),
-                                     std::ref(res.vector));
-            }
-            for (std::thread &th: threads) {
-                th.join();
-            }
+            mt_tbb_mul<T, S>(koef, std::cref(vector), std::ref(res.vector));
         }
         return res;
     }
@@ -173,27 +204,31 @@ public:
             exit(ZERO_DIVISION_ERROR);
         }
         Vector<double> res(shape[0]);
-        if (get_cores() == 0) {
-            for (int i=0; i<shape[0]; ++i) {
-                res[i] = static_cast<double>(vector[i])/static_cast<double>(koef);
+        if (method == 0) {
+            if (get_cores() == 0) {
+                for (int i=0; i<shape[0]; ++i) {
+                    res[i] = static_cast<double>(vector[i])/static_cast<double>(koef);
+                }
+            }
+            else {
+                std::vector<std::thread> threads;
+                for (int i=0; i<cores; ++i) {
+                    threads.emplace_back(mt_div<T, S>, i, cores, shape[0], koef, std::cref(vector),
+                                         std::ref(res.vector));
+                }
+                for (std::thread &th: threads) {
+                    th.join();
+                }
             }
         }
         else {
-            std::vector<std::thread> threads;
-            for (int i=0; i<cores; ++i) {
-                threads.emplace_back(mt_div<T, S>, i, cores, shape[0], koef, std::cref(vector),
-                                     std::ref(res.vector));
-            }
-            for (std::thread &th: threads) {
-                th.join();
-            }
+            mt_tbb_div<T, S>(koef, std::cref(vector), std::ref(res.vector));
         }
         return res;
     }
 
     T &operator[](int row) {
         if (row >= shape[0]) {
-
             std::cerr << "Incorrect index!" << std::endl;
             exit(INDEX_ERROR);
         }
@@ -206,85 +241,112 @@ public:
             exit(SHAPES_ERROR);
         }
         Matrix<T> res(shape[0], mx.shape[1]);
-        if (get_cores() == 0) {
-            for (int i=0; i<shape[0]; ++i) {
-                for (int j=0; j<mx.shape[1]; ++j) {
-                    res[i][j] = vector[i]*mx.matrix[0][j];
+        if (method == 0) {
+            if (get_cores() == 0) {
+                for (int i=0; i<shape[0]; ++i) {
+                    for (int j=0; j<mx.shape[1]; ++j) {
+                        res[i][j] = vector[i]*mx.matrix[0][j];
+                    }
+                }
+            }
+            else {
+                std::vector<std::thread> threads;
+                for (int i=0; i<cores; ++i) {
+                    threads.emplace_back(mt_mul_mx<T, S>, i, cores, std::cref(vector), std::ref(mx),
+                                         std::ref(res));
+                }
+                for (std::thread &th: threads) {
+                    th.join();
                 }
             }
         }
         else {
-            std::vector<std::thread> threads;
-            for (int i=0; i<cores; ++i) {
-                threads.emplace_back(mt_mul_mx<T, S>, i, cores, std::cref(vector), std::ref(mx),
-                                     std::ref(res));
-            }
-            for (std::thread &th: threads) {
-                th.join();
-            }
+            mt_tbb_mul_mx<T, S>(std::cref(vector), std::ref(mx), std::ref(res));
         }
         return res;
     }
 
     Matrix<T> transpose() {
         Matrix<T> res(1, shape[0]);
-        if (get_cores() == 0) {
-            for (int i=0; i<shape[0]; ++i) {
-                res[0][i] = vector[i];
+        if (method == 0) {
+            if (get_cores() == 0) {
+                for (int i=0; i<shape[0]; ++i) {
+                    res[0][i] = vector[i];
+                }
+            }
+            else {
+                std::vector<std::thread> threads;
+                for (int i=0; i<cores; ++i) {
+                    threads.emplace_back(mt_trans<T>, i, cores, std::cref(vector), std::ref(res));
+                }
+                for (std::thread &th: threads) {
+                    th.join();
+                }
             }
         }
         else {
-            std::vector<std::thread> threads;
-            for (int i=0; i<cores; ++i) {
-                threads.emplace_back(mt_trans<T>, i, cores, std::cref(vector), std::ref(res));
-            }
-            for (std::thread &th: threads) {
-                th.join();
-            }
+            mt_tbb_trans<T>(std::cref(vector), std::ref(res));
         }
         return res;
     }
 
-    T mult(Vector<T> &vc1){
+    template<typename S> double mult(Vector<S> &vc1){
         if (shape[0] != vc1.get_size()){
             std::cerr << "Incorrect shapes of vectors!" << std::endl;
             exit(SHAPES_ERROR);
         }
-        if (get_cores() == 0) {
-            T res = 0;
-            for (int i=0; i< shape[0]; ++i){
-                res += vector[i]*vc1[i];
+        if (method == 0) {
+            if (get_cores() == 0) {
+                double res = 0;
+                for (int i=0; i< shape[0]; ++i){
+                    res += static_cast<double>(vector[i])*static_cast<double>(vc1[i]);
+                }
+                return res;
             }
-            return res;
+            else {
+                std::vector<double> resv (vc1.get_size());
+                std::vector<std::thread> threads;
+                for (int i=0; i<cores; ++i) {
+                    threads.emplace_back(mt_prod<T, S, double>, i, cores, std::cref(vector), std::cref(vc1.vector), std::ref(resv));
+                }
+                for (std::thread &th: threads) {
+                    th.join();
+                }
+                double out = 0;
+                for (size_t i=0; i<resv.size(); ++i) {
+                    out += resv[i];
+                }
+                return out;
+            }
         }
         else {
-            std::atomic<T> res (0);
-            std::vector<std::thread> threads;
-            for (int i=0; i<cores; ++i) {
-                threads.emplace_back(mt_prod<T>, i, cores, std::cref(vector), std::cref(vc1.vector), std::ref(res));
-            }
-            for (std::thread &th: threads) {
-                th.join();
-            }
-            return res;
+            double out = 0;
+            mt_tbb_prod<T, S, double>(std::cref(vector), std::cref(vc1.vector), std::ref(out));
+
+            return out;
         }
     }
 
     Vector<T> fill(T num) {
         Vector<T> res(shape[0]);
-        if (get_cores() == 0) {
-            for (int i=0; i<shape[0]; ++i) {
-                res[i] = num;
+        if (method == 0) {
+            if (get_cores() == 0) {
+                for (int i=0; i<shape[0]; ++i) {
+                    res[i] = num;
+                }
+            }
+            else {
+                std::vector<std::thread> threads;
+                for (int i=0; i<cores; ++i) {
+                    threads.emplace_back(mt_fill<T>, i, cores, num, std::ref(res.vector));
+                }
+                for (std::thread &th: threads) {
+                    th.join();
+                }
             }
         }
         else {
-            std::vector<std::thread> threads;
-            for (int i=0; i<cores; ++i) {
-                threads.emplace_back(mt_fill<T>, i, cores, num, std::ref(res.vector));
-            }
-            for (std::thread &th: threads) {
-                th.join();
-            }
+            mt_tbb_fill<T>(num, std::ref(res.vector));
         }
         return res;
     }
@@ -304,32 +366,41 @@ public:
     }
 
     bool isnull() {
-        if (get_cores() == 0) {
-            for (int i=0; i<shape[0]; ++i) {
-                if (vector[i] != 0) {
+        if (method == 0) {
+            if (get_cores() == 0) {
+                for (int i=0; i<shape[0]; ++i) {
+                    if (vector[i] != 0) {
+                        return false;
+                    }
+                }
+            }
+            else {
+                std::atomic<int> flag (0);
+                std::vector<std::thread> threads;
+                for (int i=0; i<cores; ++i) {
+                    threads.emplace_back(mt_null<T>, i, cores, std::cref(vector),
+                                         std::ref(flag));
+                }
+                while (flag != get_cores()) {
+                    if (flag < 0) {
+                        for (std::thread &th: threads) {
+                            pthread_cancel(th.native_handle());
+                        }
+                        break;
+                    }
+                }
+                for (std::thread &th: threads) {
+                    th.join();
+                }
+                if (flag != get_cores()) {
                     return false;
                 }
             }
         }
         else {
-            std::atomic<int> flag (0);
-            std::vector<std::thread> threads;
-            for (int i=0; i<cores; ++i) {
-                threads.emplace_back(mt_null<T>, i, cores, std::cref(vector),
-                                     std::ref(flag));
-            }
-            while (flag != get_cores()) {
-                if (flag < 0) {
-                    for (std::thread &th: threads) {
-                        pthread_cancel(th.native_handle());
-                    }
-                    break;
-                }
-            }
-            for (std::thread &th: threads) {
-                th.join();
-            }
-            if (flag != get_cores()) {
+            int flag = 1;
+            mt_tbb_null<T>(std::ref(flag), std::cref(vector));
+            if (!flag) {
                 return false;
             }
         }
@@ -346,6 +417,14 @@ public:
 
     int get_cores() {
         return cores;
+    }
+
+    void set_method(int num) {
+        method = num;
+    }
+
+    int get_method() {
+        return method;
     }
 };
 
