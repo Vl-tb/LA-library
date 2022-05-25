@@ -37,30 +37,7 @@ void generate_big_matrix(Matrix<int> &mt, int rows, int cols) {
 
 int main(int argc, char *argv[]) {
 
-//    ::testing::InitGoogleTest(&argc, argv);
-//    return RUN_ALL_TESTS();
-    MatrixXd m (3, 3);
-    MatrixXd m2 (3, 3);
-    int counter = 0;
-    for ( int i = 0 ; i < 3; ++i) {
-        for (int j =0; j < 3; ++j ){
-            m(i, j) = counter++;
-            m2(i, j) = counter++;
-        }
-    }
-    std::cout <<m<< "\n";
-    std::cout <<"Something" <<"\n";
-    mult_matrix_by_k(std::ref(m), std::ref(m2), 9);
-
-    std::cout <<m2<< "\n";
-    std::cout <<"Something" <<"\n";
-
-    divide_matrix_by_k(std::ref(m), std::ref(m2), 9);
-
-    std::cout <<m2<< "\n";
-
-//    mult_matr_eigens(std::ref(m), std::ref(m2));
-    return 0;
-
+    ::testing::InitGoogleTest(&argc, argv);
+    return RUN_ALL_TESTS();
 
 }
