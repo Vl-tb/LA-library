@@ -19,48 +19,55 @@ class Matrix;
 
 template <typename T, typename S, typename F> void mt_mt_add_tbb(Vector<Vector<T>> &matrix, Matrix<S> &mt, Matrix<F> &res_matrix, int shape_0, int shape_1){
 
-    tbb::parallel_for(tbb::blocked_range<int>(0, shape_0), [&](tbb::blocked_range<int> r){
-        for(int i = r.begin(); i < r.end(); ++i){
-            for(int j =0; j < shape_1; ++j ) {
-                res_matrix[i][j] = static_cast<double>(matrix[i][j]) + static_cast<double>(mt[i][j]);
-            }
-        }
-    });
+    tbb::parallel_for(tbb::blocked_range2d<int>(0, shape_0, 0, shape_1),
+                      [&](const tbb::blocked_range2d<int> &r) {
+          for (int i = r.rows().begin(), i_end = r.rows().end(); i < i_end; i++) {
+              for (int j = r.cols().begin(), j_end = r.cols().end(); j < j_end; j++) {
+                  res_matrix[i][j] = static_cast<double>(matrix[i][j]) + static_cast<double>(mt[i][j]);
+              }
+          }
+      });
 }
 
 template <typename T, typename S, typename F> void mt_mt_sub_tbb(Vector<Vector<T>> &matrix, Matrix<S> &mt, Matrix<F> &res_matrix, int shape_0, int shape_1){
 
-    tbb::parallel_for(tbb::blocked_range<int>(0, shape_0), [&](tbb::blocked_range<int> r){
-        for(int i = r.begin(); i < r.end(); ++i){
-            for(int j =0; j < shape_1; ++j ) {
-                res_matrix[i][j] = static_cast<double>(matrix[i][j]) - static_cast<double>(mt[i][j]);
-            }
-        }
-    });
+    tbb::parallel_for(tbb::blocked_range2d<int>(0, shape_0, 0, shape_1),
+                      [&](const tbb::blocked_range2d<int> &r) {
+                          for (int i = r.rows().begin(), i_end = r.rows().end(); i < i_end; i++) {
+                              for (int j = r.cols().begin(), j_end = r.cols().end(); j < j_end; j++) {
+                                  res_matrix[i][j] = static_cast<double>(matrix[i][j]) - static_cast<double>(mt[i][j]);
+                              }
+                          }
+                      });
 }
-
 
 template <typename T, typename S, typename F> void mt_koef_mult_tbb(Vector<Vector<T>> &matrix, S koef, Matrix<F> &res_matrix, int shape_0, int shape_1){
 
-    tbb::parallel_for(tbb::blocked_range<int>(0, shape_0), [&](tbb::blocked_range<int> r){
-        for(int i = r.begin(); i < r.end(); ++i){
-            for(int j =0; j < shape_1; ++j ) {
-                res_matrix[i][j] = static_cast<double>(matrix[i][j]) * static_cast<double>(koef);
-            }
-        }
-    });
+    tbb::parallel_for(tbb::blocked_range2d<int>(0, shape_0, 0, shape_1),
+                      [&](const tbb::blocked_range2d<int> &r) {
+                          for (int i = r.rows().begin(), i_end = r.rows().end(); i < i_end; i++) {
+                              for (int j = r.cols().begin(), j_end = r.cols().end(); j < j_end; j++) {
+                                  res_matrix[i][j] = static_cast<double>(matrix[i][j]) * static_cast<double>(koef);
+                              }
+                          }
+                      });
+
+
 }
 
 
 template <typename T, typename S, typename F> void mt_koef_div_tbb(Vector<Vector<T>> &matrix, S koef, Matrix<F> &res_matrix, int shape_0, int shape_1){
 
-    tbb::parallel_for(tbb::blocked_range<int>(0, shape_0), [&](tbb::blocked_range<int> r){
-        for(int i = r.begin(); i < r.end(); ++i){
-            for(int j =0; j < shape_1; ++j ) {
-                res_matrix[i][j] = static_cast<double>(matrix[i][j]) / static_cast<double>(koef);
-            }
-        }
-    });
+    tbb::parallel_for(tbb::blocked_range2d<int>(0, shape_0, 0, shape_1),
+                      [&](const tbb::blocked_range2d<int> &r) {
+                          for (int i = r.rows().begin(), i_end = r.rows().end(); i < i_end; i++) {
+                              for (int j = r.cols().begin(), j_end = r.cols().end(); j < j_end; j++) {
+                                  res_matrix[i][j] = static_cast<double>(matrix[i][j]) / static_cast<double>(koef);
+                              }
+                          }
+                      });
+
+
 }
 
 template<typename T, typename S, typename F> void mt_mt_mult_tbb(Vector<Vector<T>>& matrix, Matrix<S> &mt, Matrix<F> &result_matrix, int shape_0) {

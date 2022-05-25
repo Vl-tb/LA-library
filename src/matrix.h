@@ -175,7 +175,7 @@ public:
         Matrix<double> res(rows, cols);
         if ( cores <=1) {
 
-            size_t i, j;
+            int i, j;
             for (i = 0; i < shape[0]; ++i) {
                 for (j = 0; j < shape[1]; ++j) {
                     if (s1 == "d" || s == "d") {
@@ -234,7 +234,7 @@ public:
 
         if ( cores <=1) {
 
-            size_t i, j;
+            int i, j;
             for (i = 0; i < shape[0]; ++i) {
                 for (j = 0; j < shape[1]; ++j) {
                     if (s1 == "d" || s == "d") {
@@ -313,8 +313,8 @@ public:
         if (cores <= 1) {
 
 
-            for (size_t i = 0; i < shape[0]; ++i) {
-                for (size_t j = 0; j < shape[1]; ++j) {
+            for (int i = 0; i < shape[0]; ++i) {
+                for (int j = 0; j < shape[1]; ++j) {
                     if (s1 == "d" || s == "d") {
                         tm[i][j] = static_cast<double>(matrix[i][j]) * static_cast<double>(koef);
                     } else {
@@ -370,8 +370,8 @@ public:
         if (cores <= 1) {
 
 
-            for (size_t i = 0; i < shape[0]; ++i) {
-                for (size_t j = 0; j < shape[1]; ++j) {
+            for (int i = 0; i < shape[0]; ++i) {
+                for (int j = 0; j < shape[1]; ++j) {
                     tm[i][j] = static_cast<double>(matrix[i][j]) / static_cast<double>(koef);
                 }
             }

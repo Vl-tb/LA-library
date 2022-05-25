@@ -98,17 +98,17 @@ int main(int argc, char *argv[]) {
 
     mt_vec_vec.set_method(0);
     mt_vec_vec.set_cores(1);
-    std::cout << mt_vec_vec.fill(pet)<<"\n";
+    std::cout << mt_vec_vec / pet<<"\n";
 
 
     mt_vec_vec.set_method(0);
     mt_vec_vec.set_cores(2);
-    std::cout << mt_vec_vec.fill(pet)<<"\n";
+    std::cout << mt_vec_vec / pet<<"\n";
 
 
     mt_vec_vec.set_method(1);
     mt_vec_vec.set_cores(1);
-    std::cout << mt_vec_vec.fill(pet)<<"\n";
+    std::cout << mt_vec_vec / pet<<"\n";
 
 ////
 ////    int a = 2;
