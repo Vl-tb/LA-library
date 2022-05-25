@@ -10,7 +10,7 @@
 #include <math.h>
 #include <pthread.h>
 #include "mt.h"
-#include "mt_tbb.h"
+#include "mt_tbb_matrix.h"
 
 template<typename T>
 class Vector;
@@ -118,9 +118,11 @@ public:
                     vec.push_back(vc1);
                 } else {
                     std::cerr<<"All rows should be the same length!"<<"\n";
+                    exit(SHAPES_ERROR);
                 }
             }
         } else {
+
             std::vector<std::thread> threads;
 
             if (cores < rows) {
@@ -156,10 +158,16 @@ public:
 
     // create matrix from Vector<Vector<T>>
     Matrix<T>(Vector<Vector<T>> &vc){
+        int init_size = vc[0].size;
+        for (int i =0; i < vc.size; ++ i) {
+            if (vc[i].size != init_size) {
+                std::cerr<<"All rows should be the same length!"<<"\n";
+                exit(SHAPES_ERROR);
+            }
+        }
         matrix = std::ref(vc);
+        shape = std::vector<int> {vc.size, vc[0].size};
     }
-
-
 
     template<typename S> Matrix<double> operator+(Matrix<S> &mt){
         if (!add_comp(mt)){
@@ -635,7 +643,6 @@ public:
     }
 
     Matrix<double> inverse(){
-//        Matrix<T> minors = minor_matrix();
         Matrix<T> orig_matr = some_matrix();
         T deter_original = orig_matr.determinant(orig_matr);
         if (deter_original==0){
@@ -735,20 +742,20 @@ public:
                     threads[i].join();
                 }
             } else {
-                matrix_fill_with<T>(std::ref(matrix), num, shape[0], shape[1]);
+                matrix_fill_with<T>(std::ref(res), num, shape[0], shape[1]);
             }
         }
         return res;
     }
 
 
-    bool add_comp(const Matrix<T> &mt){
+    template<typename S> bool add_comp(const Matrix<S> &mt){
         if(shape[0]==mt.shape[0] && shape[1]==mt.shape[1]){
             return true;
         }
         return false;
     }
-    bool mul_comp(const Matrix<T> &mt){
+    template<typename S> bool mul_comp(const Matrix<S> &mt){
         if(shape[1]==mt.shape[0]){
             return true;
         }

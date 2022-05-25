@@ -110,6 +110,7 @@ template<typename T> void vector_vector(const std::vector<std::vector<T>> &mtrx,
             vec[i] = vc1;
         } else {
             std::cerr<<"All rows should be the same length!"<<"\n";
+            exit(SHAPES_ERROR);
         }
     }
 }
@@ -131,7 +132,7 @@ template<typename T, typename S, typename F> void subtract_two_matrices(Matrix<S
     int i, j;
     for (i = start; i < end; ++i) {
         for (j = 0; j < shape_1; ++j) {
-            result_matrix[i][j] = static_cast<double>(mtx1[i][j]) - static_cast<double>(vec[i][j]);
+            result_matrix[i][j] = static_cast<double>(vec[i][j]) - static_cast<double>(mtx1[i][j]);
         }
     }
 }

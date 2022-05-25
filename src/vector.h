@@ -10,7 +10,7 @@
 #include <math.h>
 #include <pthread.h>
 #include "mt.h"
-#include "mt_tbb_vlad.h"
+#include "mt_tbb_vector.h"
 
 template<typename T>
 class Matrix;
