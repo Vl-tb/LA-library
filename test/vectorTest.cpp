@@ -1,7 +1,7 @@
 #include <gtest/gtest.h>
-#include "matrix.h"
-#include "vector.h"
-#include "errors.h"
+#include "../src/matrix.h"
+#include "../src/vector.h"
+#include "../src/errors.h"
 
 TEST(VectorTest, ConstructorDim) {
     Vector<int> vec1(5);

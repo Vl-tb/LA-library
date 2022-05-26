@@ -1,0 +1,6 @@
+/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_MAKE_PROGRAM=/Applications/CLion.app/Contents/bin/ninja/mac/ninja -G Ninja -S /Users/vladprotsenko/Documents/ACS/project/LA-library -B /Users/vladprotsenko/Documents/ACS/project/LA-library/cmake-build-release
+
+- UCU.APPS.CS: Consider enabling PVS-Studio in CMakeLists.txt by 'set(ENABLE_PVS_STUDIO ON)' flag or use Windows PVS Studio GUI.
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/vladprotsenko/Documents/ACS/project/LA-library/cmake-build-release

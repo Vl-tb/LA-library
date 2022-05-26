@@ -3,9 +3,9 @@
 //
 
 #include <gtest/gtest.h>
-#include "matrix.h"
-#include "vector.h"
-#include "errors.h"
+#include "../src/matrix.h"
+#include "../src/vector.h"
+#include "../src/errors.h"
 
 TEST(MatrixTest, ConstructorShapes) {
     Matrix<int> matrix_ints(5, 5);

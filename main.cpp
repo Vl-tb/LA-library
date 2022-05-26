@@ -6,7 +6,7 @@
 #include "src/vector.h"
 #include <vector>
 #include <gtest/gtest.h>
-#include "src/eigen_testing.h"
+#include "test/eigen_testing.h"
 #include <Eigen/Dense>
 
 using vec3d = Eigen::Vector3d;

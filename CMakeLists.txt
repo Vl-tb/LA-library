@@ -56,10 +56,7 @@ set (GCC_CLANG_WARNINGS -Wall)
 
 #! Project main executable source compilation
 add_executable(${PROJECT_NAME} main.cpp
-				src/errors.h src/matrix.h src/mt_tbb_matrix.h src/vector.h src/mt_tbb_matrix.h src/mt_tbb_vector.h src/vectorTest.cpp src/matrixTest.cpp src/eigen_testing.cpp src/eigen_testing.h)
-
-#! Put path to your project headers
-target_include_directories(${PROJECT_NAME} PRIVATE options_parser)
+				src/errors.h src/matrix.h src/mt_tbb_matrix.h src/vector.h src/mt_tbb_matrix.h src/mt_tbb_vector.h test/vectorTest.cpp test/matrixTest.cpp test/eigen_testing.cpp test/eigen_testing.h)
 
 #! Add external packages
 # options_parser requires boost::program_options library
