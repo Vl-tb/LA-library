@@ -1,44 +1,34 @@
-<mark>Template for your README. Remove all unused parts and instructions</mark>
-
-# Lab work <mark>NUMBER</mark>: <mark>SHORT TOPIC</mark>
-Authors (team): <mark>AUTHORS WITH GITHUB LINKS</mark><br>
-Variant: <mark>VARIANT SHOULD BE HERE</mark>
-## Prerequisites
-
-<mark>LIST LIBRARIES/TOOLS/OTHER UTILITIES THAT NEED TO BE INSTALLED (E.G. GCC, OPENMP, CMAKE ETC)</mark>
-
-### Compilation
-
-<mark>HOW TO COMPILE YOUR PROGRAM? (RECOMMENDED: ./comile.sh)</mark>
-
-### Installation
-
-<mark>DESCRIBE THE INSTALLATION PROCESS (USE ./dependencies FOLDER)</mark>
-
-<mark>Note: For Python scripts, You must add `requirenments.txt` 
-file and add your env to the `.gitignore` file!</mark>
-
-### Usage
-
-<mark>PROVIDE AN EXAMPLE OF HOW TO RUN YOUR PROGRAM (IT CAN BE A_flag COMMAND LINE WITH INPUT AND EXPECTED OUTPUT)</mark>
-
-<mark>Note: if your project needs or generates any data, media and so on -- put them
-into the data folder</mark> 
-
-### Important!
-
-<mark>WHAT ELSE SHOULD WE KNOW ABOUT YOUR WORK? (E.G. KNOWN ISSUES, BUGS, SPECIAL BEHAVIOR ETC)</mark>
-
-### Results
-
-<mark>DESCRIBE THE RESULTS OF THE WORK YOU DID. WHAT DID YOU LEARN OR FIND INTERESTING?</mark>
-
-# Additional tasks
-<mark>IF APPLICABLE, LIST ALL THE EXTRA FEATURES YOU ADDED. PROVIDE DETAILS<mark>
-
-# ATTENTION!
-  
-Additional tasks not listed in the previous paragraph would not be graded.
-
-Be sure to provide a complete list of authors.
-
+# LA-Library
+This is a c++ library of linear algebra, which uses paralelism for better efficiency.  
+This library supports 3 variants of executing for main la methods: sequential execution, parallel execution and execution with usage of tbb parallel algorithms.  
+## Structure
+All library is located on `main` branch, in headers in `src/` directory and consists of several `.h` files.  
+There is also `test/` directory, which has our custom tests as well as google tests.  
+`data/` directory has some info files (some graphs) and `.py` file.
+## How to
+All library consists of 2 big parts: `Vector`, with all it's methods, and `Matrix` with it's methods.  
+Let's start with `Vector`.  
+## Vector
+`Vector` is an 1xn object, which represents obviously a vector in linear algebra. There are several methods of creating it:  
+  * using dimension of vector:  
+  ```
+  Vector<int> vc(3); #creating 3-dimensional empty vector of ints (undetermined values)
+  ``` 
+  * using `std::vector`:  
+  ```
+  std::vector list{1, 2, 3};  
+  Vector<int> vc(list);
+  ```
+  or:
+  ```
+  Vector<int> vc({1, 2, 3});
+  ```
+It's recommended to use `.fill()` right after creating vector by dimension to avoid unexpected results:
+```
+Vector<int> vc(3);
+vc = vc.fill(3) #[3, 3, 3]
+```
+Vector object has some important attributes: `cores`, `method` and `size`.  
+  * `cores` is equal by default to the number of logical cores of mashine;
+  * `method` is by default 0;
+  * `size` is size (dimension) of vector;
