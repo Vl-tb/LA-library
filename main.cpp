@@ -37,7 +37,14 @@ void generate_big_matrix(Matrix<int> &mt, int rows, int cols) {
 
 int main(int argc, char *argv[]) {
 
-    ::testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
+    // ::testing::InitGoogleTest(&argc, argv);
+    // return RUN_ALL_TESTS();
+    std::vector<std::vector<double>> vector_2 {{1.0, 0.7, 5.3},
+                                               {2.1,1.6, 6.4},
+                                               {3.2, 4.3, 0.5}};
+    Matrix<double> mt_vec_vec2(vector_2);
+    std::cout << mt_vec_vec2 <<"\n";
+    Matrix<double> cut_row_col = mt_vec_vec2.cuT_Col_Row(0, 0);
+    std::cout << cut_row_col <<"\n";
 
 }

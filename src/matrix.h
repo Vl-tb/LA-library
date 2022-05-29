@@ -840,6 +840,10 @@ public:
     // this method cuts the given column and row from the matrix
     // and returns the result afterwards
     Matrix<T> cuT_Col_Row(int row, int col){
+        if ( row >= shape[0] || col >= shape[1]) {
+            std::cerr << "Cannot cat an unexisting row or column!" << "\n";
+            exit(SHAPES_ERROR);
+        }
         int i, j;
         Matrix<T> res_matrix(shape[0]-1, shape[1]-1);
         int r = 0;
