@@ -147,4 +147,47 @@ template<typename T> void matrix_fill_with(Matrix<T> &or_matrix, T koef, int sha
                       });
 }
 
+
+template<typename T> void matrix__check_ident_tbb(Vector<Vector<T>>& matrix, std::atomic<bool> &check, int shape_0, int shape_1) {
+
+
+
+    tbb::parallel_for(tbb::blocked_range2d<int>(0, shape_0, 0, shape_1),
+                      [&](const tbb::blocked_range2d<int> &r) {
+                          if (check){
+                              for (int i = r.rows().begin(), i_end = r.rows().end(); i < i_end; i++) {
+                                  for (int j = r.cols().begin(), j_end = r.cols().end(); j < j_end; j++) {
+                                      if(i==j){
+                                          if (matrix[i][j]!=1){
+                                              check = false;
+                                          }
+                                      } else if (matrix[i][j]!=0){
+                                          check = false;
+                                      }
+                                  }
+                              }
+                          }
+                      });
+}
+
+
+template<typename T, typename S> void matrix__check_equal_tbb(Vector<Vector<T>>& matrix, Matrix<S> &matr_2, std::atomic<bool> &check, int shape_0, int shape_1) {
+
+
+
+    tbb::parallel_for(tbb::blocked_range2d<int>(0, shape_0, 0, shape_1),
+                      [&](const tbb::blocked_range2d<int> &r) {
+                          if (check){
+                              for (int i = r.rows().begin(), i_end = r.rows().end(); i < i_end; i++) {
+                                  for (int j = r.cols().begin(), j_end = r.cols().end(); j < j_end; j++) {
+                                      if (matrix[i][j]!=matr_2[i][j]){
+                                          check = false;
+                                      }
+                                  }
+                              }
+                          }
+                      });
+}
+
+
 #endif //TEMPLATE_MT_TBB_H

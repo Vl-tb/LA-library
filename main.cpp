@@ -39,12 +39,16 @@ int main(int argc, char *argv[]) {
 
     // ::testing::InitGoogleTest(&argc, argv);
     // return RUN_ALL_TESTS();
-    std::vector<std::vector<double>> vector_2 {{1.0, 0.7, 5.3},
-                                               {2.1,1.6, 6.4},
-                                               {3.2, 4.3, 0.5}};
-    Matrix<double> mt_vec_vec2(vector_2);
-    std::cout << mt_vec_vec2 <<"\n";
-    Matrix<double> cut_row_col = mt_vec_vec2.cuT_Col_Row(0, 0);
-    std::cout << cut_row_col <<"\n";
+    std::vector<std::vector<int>> vector_2 {{1, 0, 0}, {0,1, 0}, {0, 0, 1}};
+    Matrix<int> mt_vec_vec2(vector_2);
 
+    mt_vec_vec2.set_method(0);
+    mt_vec_vec2.set_cores(1);
+    std::cout << (mt_vec_vec2==mt_vec_vec2) <<"\n";
+
+    mt_vec_vec2.set_cores(4);
+    std::cout << (mt_vec_vec2==mt_vec_vec2) <<"\n";
+
+    mt_vec_vec2.set_method(1);
+    std::cout << (mt_vec_vec2==mt_vec_vec2) <<"\n";
 }

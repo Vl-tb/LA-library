@@ -1,6 +1,7 @@
 #ifndef LA_LIBRARY_MATRIX_H
 #define LA_LIBRARY_MATRIX_H
 
+#include <iostream>
 #include <vector>
 #include "vector.h"
 #include "errors.h"
@@ -297,16 +298,54 @@ public:
             exit(TYPE_ERROR);
         }
 
-        size_t i, j;
-        for (i=0; i < shape[0]; ++i){
-            for (j=0; j< shape[1]; ++j){
-                if (mt[i][j] != matrix[i][j]){
-                    return false;
+        if (cores == 1){
+            size_t i, j;
+            for (i=0; i < shape[0]; ++i) {
+                for (j = 0; j < shape[1]; ++j) {
+                    if (mt[i][j] != matrix[i][j]) {
+                        return false;
+                    }
                 }
             }
-        }
-        return true;
+            return true;
+        } else {
+            std::atomic<bool> current_true = true;
+            if (method == 0) {
+                int rows = shape[0];
+                int amount = rows / cores;
 
+                std::vector<std::thread> threads;
+
+                if (cores < rows) {
+                    for (int i = 0; i < cores; ++i) {
+                        int start = i * amount;
+                        int end;
+                        if (i != cores - 1) {
+                            end = (i + 1) * amount;
+                        } else {
+                            end = rows;
+                        }
+// void matrix__check__equal(Vector<Vector<T>>& matrix, Matrix<S> &matr_2, std::atomic<bool> &check, int start, int end, int shape_1) {
+
+                            threads.emplace_back(matrix__check__equal<T, S>, std::ref(matrix), std::ref(mt), std::ref(current_true), start,
+                                             end, shape[1]);
+                    }
+                } else {
+                    for (int i = 0; i < rows; ++i) {
+                        threads.emplace_back(matrix__check__equal<T, S>, std::ref(matrix), std::ref(mt), std::ref(current_true), i,
+                                             i+1, shape[1]);
+                    }
+                }
+                for (auto &thread: threads) {
+                    thread.join();
+                }
+            } else {
+//   matrix__check_equal_tbb(Vector<Vector<T>>& matrix, Matrix<S> &matr_2, std::atomic<bool> &check, int shape_0, int shape_1) {
+                matrix__check_equal_tbb<T, S>(std::ref(matrix), std::ref(mt), std::ref(current_true), shape[0], shape[1]);
+            }
+            return current_true;
+
+        }
     }
 
     template<typename S>  Matrix<double> operator*(S koef){
@@ -770,20 +809,57 @@ public:
         return true;
     }
     bool isident(){
-        int i, j;
-        for ( i =0; i < shape[0]; ++i ){
-            for (j=0; j < shape[1]; ++j){
+        if (shape[0]!=shape[1]){
+            return false;
+        }
 
-                if(i==j){
-                    if (matrix[i][j]!=1){
+        if (cores ==1){
+            int i, j;
+            for ( i =0; i < shape[0]; ++i ){
+                for (j=0; j < shape[1]; ++j){
+
+                    if(i==j){
+                        if (matrix[i][j]!=1){
+                            return false;
+                        }
+                    } else if (matrix[i][j]!=0){
                         return false;
                     }
-                } else if (matrix[i][j]!=0){
-                    return false;
                 }
             }
+            return true;
+        } else {
+            std::atomic<bool> current_true = true;
+            if (method == 0) {
+                int rows = shape[0];
+                int amount = rows / cores;
+
+                std::vector <std::thread> threads;
+
+                if (cores < rows) {
+                    for (int i = 0; i < cores; ++i) {
+                        int start = i * amount;
+                        int end;
+                        if (i != cores - 1) {
+                            end = (i + 1) * amount;
+                        } else {
+                            end = rows;
+                        }
+                            threads.emplace_back(matrix__check_ident<T>, std::ref(matrix), std::ref(current_true), start, end, shape[1]);
+                    }
+                } else {
+                    for (int i = 0; i < rows; ++i) {
+                        threads.emplace_back(matrix__check_ident<T>, std::ref(matrix), std::ref(current_true), i, i+1, shape[1]);
+                    }
+                }
+                for (auto & thread : threads) {
+                    thread.join();
+                }
+            } else {
+                matrix__check_ident_tbb<T>(std::ref(matrix), std::ref(current_true), shape[0], shape[1]);
+            }
+            return current_true;
         }
-        return true;
     }
 
     int rowNum(){

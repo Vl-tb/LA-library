@@ -168,6 +168,43 @@ template<typename T, typename S, typename F> void matrix_by_matrix(Vector<Vector
     }
 }
 
+template<typename T> void matrix__check_ident(Vector<Vector<T>>& matrix, std::atomic<bool> &check, int start, int end, int shape_1) {
+    int i, j;
+
+    for ( i =start; i < end; ++i ){
+        if (check){
+            for (j=0; j < shape_1; ++j){
+
+                if(i==j){
+                    if (matrix[i][j]!=1){
+                        check = false;
+                    }
+                } else if (matrix[i][j]!=0){
+                    check = false;
+                }
+            }
+        } else {
+            break;
+        }
+    }
+}
+
+template<typename T, typename S> void matrix__check__equal(Vector<Vector<T>>& matrix, Matrix<S> &matr_2, std::atomic<bool> &check, int start, int end, int shape_1) {
+    int i, j;
+
+    for ( i =start; i < end; ++i ){
+        if (check){
+            for (j=0; j < shape_1; ++j){
+                if (matrix[i][j]!=matr_2[i][j]){
+                    check = false;
+                }
+            }
+        } else {
+            break;
+        }
+    }
+}
+
 template<typename T, typename S, typename F> void matrix_by_vector(Vector<Vector<T>> &matrix, Vector<S> &vc, Matrix<F> &result_matrix, int start, int end) {
     int i;
     for (i = start; i < end; ++i) {
