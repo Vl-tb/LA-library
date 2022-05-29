@@ -346,14 +346,19 @@ The output of the given code would be (doesn't depend on method or number of thr
 
 * Check if two matrices are equal 
 
-In these method only linear version is available at the moment
-
+User may run this either linear, in parallel with the set amount of threads or via tbb. 
 ```
 std::vector<std::vector<int>> vector_1 {{1, 2, 3}, {3, 4, 5}};
 Matrix<int> mt_vec_vec(vector_1);
 std::vector<std::vector<double>> vector_2 {{1.9, 2.0, 3.7}, {3.2, 4.1, 5.3}};
 Matrix<double> mt_vec_vec2(vector_2);
+// here you may use: 
+//mt_vec_vec.set_method(0); - to use the set amount of threads, therefore:
+//mt_vec_vec.set_cores(1); - to run in linear 
+//mt_vec_vec.set_cores(2); - to run in two threads (you may put any number of threads here)
 
+// or 
+//  mt_vec_vec.set_method(1); - then tbb variant will be chosen 
 std::cout << mt_vec_vec==mt_vec_vec2<<"\n;
 std::cout << mt_vec_vec==mt_vec_vec<<"\n;
 ```
@@ -568,7 +573,8 @@ The output of the given code sample would be:
 
 * Check matrix for being identent 
 
-bool function to check whether the given matrix is identent or not. Only works linearly so far. 
+bool function to check whether the given matrix is identent or not. User may run this either linear, in parallel with the set amount of threads or via tbb.
+
 
 ```
 std::vector<std::vector<int>> vector_1 {{1, 0, 5}, {2,1, 6}, {3, 4, 0}};
@@ -577,7 +583,13 @@ std::vector<std::vector<int>> vector_1 {{1, 0, 5}, {2,1, 6}, {3, 4, 0}};
     std::vector<std::vector<int>> vector_2 {{1, 0, 0}, {0,1, 0}, {0, 0, 1}};
     Matrix<int> mt_vec_vec2(vector_2);
 
-
+    // here you may use: 
+    //mt_vec_vec.set_method(0); - to use the set amount of threads, therefore:
+    //mt_vec_vec.set_cores(1); - to run in linear 
+    //mt_vec_vec.set_cores(2); - to run in two threads (you may put any number of threads here)
+    
+    // or 
+    //  mt_vec_vec.set_method(1); - then tbb variant will be chosen 
     bool first_matrix = mt_vec_vec.isident(); // false
     bool second_matrix = mt_vec_vec2.isident(); // true
 ```
